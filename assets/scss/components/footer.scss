@@ -1,0 +1,166 @@
+@import '../parts/variables.scss';
+@import '../parts/fonts.scss';
+@import '../parts/mixins.scss';
+
+.footer
+{
+    width: 100%;
+    background: $footer_color;
+    color: white;
+    font-family: $default_font;
+
+    .footer_container
+    {
+        display: flex;
+        flex-direction: column;
+        padding-top: 50px;
+        @include side_padding();
+
+        .footer_container_links
+        {
+            display: flex;
+            justify-content: space-between;
+
+            @media screen and( max-width: 990px )
+            {
+                flex-direction: column;
+            }
+
+            ul
+            {
+                list-style: none;
+                @media screen and( max-width: 990px )
+                {
+                    margin-bottom: 35px;
+                    text-align: center;
+
+                    &:last-child
+                    {
+                        margin-bottom: 2px;
+                    }
+                }
+
+                li
+                {
+                    font-size: 15px;
+                    font-weight: 300;
+                    letter-spacing: .6px;
+                    margin-bottom: 2px;
+                    @media screen and( max-width: 990px )
+                    {
+                        font-size: 16px;
+                    }
+
+                    &:first-child
+                    {
+                        font-weight: 600;
+                        text-transform: uppercase;
+                        margin-bottom: 10px;
+                        letter-spacing: normal;
+                    }
+
+                    a
+                    {
+                        text-decoration: none;
+                        color: inherit;
+                        transition: color .2s;
+                        cursor: pointer;
+
+                        &:hover
+                        {
+                            color: darken(white, 10%);
+                            transition: color .2s;
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+                .all
+                {
+                    margin-top: 15px;
+                    text-decoraion: none;
+                }
+            }
+        }
+
+        .footer_container_warning
+        {
+            margin: 60px 0 30px 0;
+            width: 80%;
+            //letter-spacing: .5px;
+            font-size: 14px;
+            @media screen and( max-width: 990px )
+            {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+
+    .footer_bottom_container
+    {
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        background: darken( $main_color_2, 10% );
+        padding-top: 20px;
+        padding-bottom: 20px;
+        @include side_padding;
+        font-size: 14px;
+
+        .copyright
+        {
+            align-self: flex-end;
+        }
+
+        .footer_pagetop
+        {
+            cursor: pointer;
+            opacity: .8;
+            transition: opacity .2s;
+
+            &:hover
+            {
+                opacity: 1;
+                transition: opacity .2s;
+            }
+        }
+
+        .bottom_container_right
+        {
+            display: flex;
+            align-items: center;
+
+            svg
+            {
+                height: 16px;
+                padding-top: 5px;
+            }
+
+            a
+            {
+                color: white;
+                text-decoration: none;
+                margin-left: 20px;
+            }
+        }
+
+        .container_max_width
+        {
+            @media screen and( max-width: 840px )
+            {
+                display: none;
+            }
+        }
+
+        .container_min_width
+        {
+            display: none;
+
+            @media screen and( max-width: 840px )
+            {
+                display: block;
+            }
+        }
+    }
+}

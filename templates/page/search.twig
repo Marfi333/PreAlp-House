@@ -1,0 +1,365 @@
+{% extends "./components/page-base.twig" %}
+
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags( 'searchcss' ) }}
+{% endblock %}
+
+{% block body %}
+<section class="searchbar">
+    <div class="container">
+        <div class="inputContainer">
+            
+            <div class="global_dropdown megbizas-tipusa">
+                <button class="global_dropbtn" -data-dropdown="megbizas_tipusa" data-label="megbizas-tipusa" data-value="{% if filter['megbizas-tipusa'] is not defined %}Kiadó{% else %}{{ filter['megbizas-tipusa'] }}{% endif %}">{% if filter['megbizas-tipusa'] is not defined %}Kiadó{% else %}{{ filter['megbizas-tipusa'] }}{% endif %}</button>
+                <div class="global_dropdown_content" -data-dropdown="megbizas_tipusa">
+                    <a class="ch" data-currency="ezer Ft">Kiadó</a>
+                    <a class="ch" data-currency="millió Ft">Eladó</a>
+                </div>
+            </div>
+            <div class="global_dropdown ingatlan-tipusa">
+                <button class="global_dropbtn" -data-dropdown="ingatlan_tipusa" data-label="ingatlan-tipusa" data-value="{% if filter['ingatlan-tipusa'] is not defined %}Lakás{% else %}{{ filter['ingatlan-tipusa'] }}{% endif %}">{% if filter['ingatlan-tipusa'] is not defined %}Lakás{% else %}{{ filter['ingatlan-tipusa'] }}{% endif %}</button>
+                <div class="global_dropdown_content" -data-dropdown="ingatlan_tipusa">
+                    <a>Lakás</a>
+                    <a>Ház</a>
+                </div>
+            </div>
+            <input type="text" class="szoveges" data-label="kifejezes" placeholder="település, megye" value="{% if filter.kereses is defined %}{{ filter.kereses }}{% endif %}">
+            <div id="mr" class="meret">
+                <input id="mi" class="default" onfocus="changeInput('m', this);" type="text" placeholder="méret" value="{% if filter.meret is defined %}{{ filter.meret.minimum ~ '-' ~ filter.meret.maximum }}{% endif %}">
+            </div>
+            <div class="global_dropdown szobak">
+                <button id="szmr" class="global_dropbtn" -data-dropdown="szobak" data-label="szobak" data-value="szobák"><span style="{% if filter.szobak is not defined %}color: rgba(0,0,0,.4){% endif %}">{% if filter.szobak is not defined %}szobák{% else %}{{ filter.szobak }}{% endif %}</span></button>
+                <div class="global_dropdown_content" -data-dropdown="szobak">
+                    <a id="szm">mindegy</a>
+                    <a>1</a>
+                    <a>2</a>
+                    <a>3</a>
+                    <a>4</a>
+                    <a>5</a>
+                    <a>6</a>
+                    <a>6+</a>
+                </div>
+            </div>
+            <div id="ar" class="ar" data-currency="{% if valuta == 1000 %}ezer Ft{% else %}millió Ft{% endif %}">
+                <input id="pi" class="default" onfocus="changeInput('p', this);" type="text" placeholder="ár" value="{% if filter.ar is defined %}{{ filter.ar.minimum / valuta  ~ '-' ~ filter.ar.maximum / valuta }}{% endif %}">
+            </div>
+            <button class="search">
+                    <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-search fa-w-16 fa-9x"><path fill="currentColor" d="M508.5 468.9L387.1 347.5c-2.3-2.3-5.3-3.5-8.5-3.5h-13.2c31.5-36.5 50.6-84 50.6-136C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c52 0 99.5-19.1 136-50.6v13.2c0 3.2 1.3 6.2 3.5 8.5l121.4 121.4c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17zM208 368c-88.4 0-160-71.6-160-160S119.6 48 208 48s160 71.6 160 160-71.6 160-160 160z" class=""></path></svg> Keresés
+            </button>
+
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="container">
+        <div class="filter_container">
+            <div class="filter_menu">
+                <div class="selector">
+                    <button class="btn filter">
+                        <div class="img_container">
+                            <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="chimney" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-chimney fa-w-16 fa-9x"><g class="fa-group"><path fill="currentColor" d="M160 224H32v128h128zM32 512h288V384H32zm320 0h128V384H352zM192 224v128h288V224z" class="fa-secondary"></path><path fill="currentColor" d="M0 160V32A32 32 0 0 1 32 0h448a32 32 0 0 1 32 32v128a32 32 0 0 1-32 32H32a32 32 0 0 1-32-32z" class="fa-primary"></path></g></svg>
+                        </div>
+                        Szerkezet
+                    </button>
+                    <div class="menu filter_element {% if twigFilter.szerkezet is defined %}show{% endif %}" data-filter-label="szerkezet" data-filter-value="{% if twigFilter.szerkezet is defined %}{{ twigFilter.szerkezet }}{% endif %}">
+                        <div class="filteritem" data-value="Tégla">
+                            <div class="radio {% if filter.szerkezet is defined %}{% if filter.szerkezet is iterable %}{% if 'Tégla' in filter.szerkezet %}selected{% endif %}{% else %}{% if filter.szerkezet == 'Tégla' %}selected{% endif %}{% endif %}{% endif %}"></div>
+                            <p class="elem filterTrigger">Tégla</p>
+                        </div>
+                        <div class="filteritem" data-value="Panel">
+                            <div class="radio {% if filter.szerkezet is defined %}{% if filter.szerkezet is iterable %}{% if 'Panel' in filter.szerkezet %}selected{% endif %}{% else %}{% if filter.szerkezet == 'Panel' %}selected{% endif %}{% endif %}{% endif %}"></div>
+                            <p class="elem">Panel</p>
+                        </div>
+                        <div class="filteritem" data-value="Cs. zsalu">
+                            <div class="radio {% if filter.szerkezet is defined %}{% if filter.szerkezet is iterable %}{% if 'Cs. zsalu' in filter.szerkezet %}selected{% endif %}{% else %}{% if filter.szerkezet == 'Cs. zsalu' %}selected{% endif %}{% endif %}{% endif %}"></div>
+                            <p class="elem">Cs. zsalu</p>
+                        </div>
+                        <div class="filteritem" data-value="Egyéb">
+                            <div class="radio  {% if filter.szerkezet is defined %}{% if filter.szerkezet is iterable %}{% if 'Egyéb' in filter.szerkezet %}selected{% endif %}{% else %}{% if filter.szerkezet == 'Egyéb' %}selected{% endif %}{% endif %}{% endif %}"></div>
+                            <p class="elem">Egyéb</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="selector">
+                    <button class="btn filter">
+                        <div class="img_container">
+                            <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="fireplace" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="svg-inline--fa fa-fireplace fa-w-20 fa-9x"><g class="fa-group"><path fill="currentColor" d="M371.2 281.6a289.37 289.37 0 0 0-28.9 30 390.58 390.58 0 0 0-51.1-55.6c-50.5 45.6-86.4 105-86.4 140.8a115.2 115.2 0 0 0 230.4 0c0-26.6-26.7-81.6-64-115.2zm-13.4 166.9a64.22 64.22 0 0 1-37.8 12.3c-35.3 0-64-24.4-64-64 0-19.7 11.9-37.1 35.6-66.8 3.4 4.1 48.3 64.1 48.3 64.1l28.7-34.2c2 3.5 3.9 6.9 5.5 10.2 13.4 26.6 7.8 60.8-16.3 78.4z" class="fa-secondary"></path><path fill="currentColor" d="M624 0H16A16 16 0 0 0 0 16v64a16 16 0 0 0 16 16h608a16 16 0 0 0 16-16V16a16 16 0 0 0-16-16zM32 512h96V384c0-106 86-192 192-192s192 86 192 192v128h96V128H32z" class="fa-primary"></path></g></svg>
+                        </div>
+                        Fűtés
+                    </button>
+                    <div class="menu filter_element {% if twigFilter.futes is defined %}show{% endif %}" data-filter-label="futes" data-filter-value="{% if twigFilter.futes is defined %}{{ twigFilter.futes }}{% endif %}">
+                        <div class="filteritem" data-value="Gáz - Cirkó">
+                            <div class="radio {% if filter.futes is defined %}{% if filter.futes is iterable %}{% if 'Gáz - Cirkó' in filter.futes %}selected{% endif %}{% else %}{% if filter.futes == 'Gáz - Cirkó' %}selected{% endif %}{% endif %}{% endif %}"></div>
+                            <p class="elem">Gáz - Cirkó</p>
+                        </div>
+                        <div class="filteritem" data-value="Gáz - Konvektor">
+                            <div class="radio {% if filter.futes is defined %}{% if filter.futes is iterable %}{% if 'Gáz - Konvektor' in filter.futes %}selected{% endif %}{% else %}{% if filter.futes == 'Gáz - Konvektor' %}selected{% endif %}{% endif %}{% endif %}"></div>
+                            <p class="elem">Gáz - Konvektor</p>
+                        </div>
+                        <div class="filteritem" data-value="Gáz - Héra">
+                            <div class="radio {% if filter.futes is defined %}{% if filter.futes is iterable %}{% if 'Gáz - Héra' in filter.futes %}selected{% endif %}{% else %}{% if filter.futes == 'Gáz - Héra' %}selected{% endif %}{% endif %}{% endif %}"></div>
+                            <p class="elem">Gáz - Héra</p>
+                        </div>
+                        <div class="filteritem" data-value="Gáz + Napkollektor">
+                            <div class="radio {% if filter.futes is defined %}{% if filter.futes is iterable %}{% if 'Gáz + Napkollektor' in filter.futes %}selected{% endif %}{% else %}{% if filter.futes == 'Gáz + Napkollektor' %}selected{% endif %}{% endif %}{% endif %}"></div>
+                            <p class="elem">Gáz + Napkollektor</p>
+                        </div>
+                        <div class="filteritem" data-value="Egyéb kazán">
+                            <div class="radio {% if filter.futes is defined %}{% if filter.futes is iterable %}{% if 'Egyéb kazán' in filter.futes %}selected{% endif %}{% else %}{% if filter.futes == 'Egyéb kazán' %}selected{% endif %}{% endif %}{% endif %}"></div>
+                            <p class="elem">Egyéb kazán</p>
+                        </div>
+                        <div class="filteritem" data-value="Geotermikus">
+                            <div class="radio {% if filter.futes is defined %}{% if filter.futes is iterable %}{% if 'Geotermikus' in filter.futes %}selected{% endif %}{% else %}{% if filter.futes == 'Geotermikus' %}selected{% endif %}{% endif %}{% endif %}"></div>
+                            <p class="elem">Geotermikus</p>
+                        </div>
+                        <div class="filteritem" data-value="Házközponti">
+                            <div class="radio {% if filter.futes is defined %}{% if filter.futes is iterable %}{% if 'Házközponti' in filter.futes %}selected{% endif %}{% else %}{% if filter.futes == 'Házközponti' %}selected{% endif %}{% endif %}{% endif %}"></div>
+                            <p class="elem">Házközponti</p>
+                        </div>
+                        <div class="filteritem" data-value="Házközponti e. méréssel">
+                            <div class="radio {% if filter.futes is defined %}{% if filter.futes is iterable %}{% if 'Házközponti e. méréssel' in filter.futes %}selected{% endif %}{% else %}{% if filter.futes == 'Házközponti e. méréssel' %}selected{% endif %}{% endif %}{% endif %}"></div>
+                            <p class="elem">Házközponti e. méréssel</p>
+                        </div>
+                        <div class="filteritem" data-value="Távfűtés">
+                            <div class="radio {% if filter.futes is defined %}{% if filter.futes is iterable %}{% if 'Távfűtés' in filter.futes %}selected{% endif %}{% else %}{% if filter.futes == 'Távfűtés' %}selected{% endif %}{% endif %}{% endif %}"></div>
+                            <p class="elem">Távfűtés</p>
+                        </div>
+                        <div class="filteritem" data-value="Távfűtés e. méréssel">
+                            <div class="radio {% if filter.futes is defined %}{% if filter.futes is iterable %}{% if 'Távfűtés e. méréssel' in filter.futes %}selected{% endif %}{% else %}{% if filter.futes == 'Távfűtés e. méréssel' %}selected{% endif %}{% endif %}{% endif %}"></div>
+                            <p class="elem">Távfűtés e. méréssel</p>
+                        </div>
+                        <div class="filteritem" data-value="Elektromos">
+                            <div class="radio {% if filter.futes is defined %}{% if filter.futes is iterable %}{% if 'Elektromos' in filter.futes %}selected{% endif %}{% else %}{% if filter.futes == 'Elektromos' %}selected{% endif %}{% endif %}{% endif %}"></div>
+                            <p class="elem">Elektromos</p>
+                        </div>
+                        <div class="filteritem" data-value="Egyéb">
+                            <div class="radio {% if filter.futes is defined %}{% if filter.futes is iterable %}{% if 'Egyéb' in filter.futes %}selected{% endif %}{% else %}{% if filter.futes == 'Egyéb' %}selected{% endif %}{% endif %}{% endif %}"></div>
+                            <p class="elem">Egyéb</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="selector">
+                    <button class="btn filter">
+                        <div class="img_container">
+                            <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="door-closed" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="svg-inline--fa fa-door-closed fa-w-20 fa-9x"><g class="fa-group"><path fill="currentColor" d="M640 464v32a16 16 0 0 1-16 16H16a16 16 0 0 1-16-16v-32a16 16 0 0 1 16-16h608a16 16 0 0 1 16 16z" class="fa-secondary"></path><path fill="currentColor" d="M464 0H176c-26.47 0-48 22.78-48 50.8V448h384V50.8C512 22.78 490.47 0 464 0zm-48 288a32 32 0 1 1 32-32 32 32 0 0 1-32 32z" class="fa-primary"></path></g></svg>
+                        </div>
+                        Erkély
+                    </button>
+                    <div class="menu filter_element {% if twigFilter.erkely is defined %}show{% endif %}" data-filter-label="erkely" data-filter-value="{% if twigFilter.erkely is defined %}{{ twigFilter.erkely }}{% endif %}">
+                        <div class="filteritem" data-value="Igen">
+                            <div class="radio {% if filter.erkely is defined %}{% if filter.erkely is iterable %}{% if 'Igen' in filter.erkely %}selected{% endif %}{% else %}{% if filter.erkely == 'Igen' %}selected{% endif %}{% endif %}{% endif %}"></div>
+                            <p class="elem">Igen</p>
+                        </div>
+                        <div class="filteritem" data-value="Nem">
+                            <div class="radio {% if filter.erkely is defined %}{% if filter.erkely is iterable %}{% if 'Nem' in filter.erkely %}selected{% endif %}{% else %}{% if filter.erkely == 'Nem' %}selected{% endif %}{% endif %}{% endif %}"></div>
+                            <p class="elem">Nem</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="selector">
+                    <button class="btn filter">
+                        <div class="img_container">
+                            <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="sort-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="svg-inline--fa fa-sort-alt fa-w-12 fa-9x"><g class="fa-group"><path fill="currentColor" d="M379.29 132.69l-80-96a16 16 0 0 0-22.62 0l-80 96C186.65 142.74 193.78 160 208 160h48v304a16 16 0 0 0 16 16h32a16 16 0 0 0 16-16V160h48c14.19 0 21.36-17.24 11.29-27.31z" class="fa-secondary"></path><path fill="currentColor" d="M176 352h-48V48a16 16 0 0 0-16-16H80a16 16 0 0 0-16 16v304H16c-14.19 0-21.36 17.24-11.29 27.31l80 96a16 16 0 0 0 22.62 0l80-96C197.35 369.26 190.22 352 176 352z" class="fa-primary"></path></g></svg>
+                        </div>
+                        Lift
+                    </button>
+                    <div class="menu filter_element {% if twigFilter.lift is defined %}show{% endif %}" data-filter-label="lift" data-filter-value="{% if twigFilter.lift is defined %}{{ twigFilter.lift }}{% endif %}">
+                        <div class="filteritem" data-value="Igen">
+                            <div class="radio {% if filter.lift is defined %}{% if filter.lift is iterable %}{% if 'Igen' in filter.lift %}selected{% endif %}{% else %}{% if filter.lift == 'Igen' %}selected{% endif %}{% endif %}{% endif %}"></div>
+                            <p class="elem">Igen</p>
+                        </div>
+                        <div class="filteritem" data-value="Nem">
+                            <div class="radio {% if filter.erkely is defined %}{% if filter.erkely is iterable %}{% if 'Nem' in filter.erkely %}selected{% endif %}{% else %}{% if filter.erkely == 'Nem' %}selected{% endif %}{% endif %}{% endif %}"></div>
+                            <p class="elem">Nem</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="selector">
+                    <button class="btn filter">
+                        <div class="img_container">
+                            <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="tools" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-tools fa-w-16 fa-9x"><g class="fa-group"><path fill="currentColor" d="M193.8 227.7L18.74 402.76a64 64 0 0 0 90.5 90.5l148.88-148.88a75.36 75.36 0 0 1 6.58-45.78zM64 472a24 24 0 1 1 24-24 24 24 0 0 1-24 24zm443.73-362.9a12 12 0 0 0-20.12-5.51L413.25 178l-67.88-11.31-11.31-67.93 74.36-74.36a12 12 0 0 0-5.66-20.16 143.92 143.92 0 0 0-136.58 37.93c-39.64 39.64-50.55 97.1-34.05 147.2l-4.43 4.43 70.9 70.9a74.25 74.25 0 0 1 85.4 13.9l7.21 7.21a141.74 141.74 0 0 0 78.61-40 143.94 143.94 0 0 0 37.91-136.71z" class="fa-secondary"></path><path fill="currentColor" d="M501.1 395.7a37.36 37.36 0 0 1 0 52.7l-52.7 52.7a37.18 37.18 0 0 1-52.58.12l-.12-.12L278.6 384c-23.1-23.1-27.5-57.6-13.9-85.4L158.1 192H96L0 64 64 0l128 96v62.1l106.6 106.6a74.25 74.25 0 0 1 85.4 13.9z" class="fa-primary"></path></g></svg>
+                        </div>
+                        Állapot
+                    </button>
+                    <div class="menu filter_element {% if twigFilter.allapot is defined %}show{% endif %}" data-filter-label="allapot" data-filter-value="{% if twigFilter.allapot is defined %}{{ twigFilter.allapot }}{% endif %}">
+                        <div class="filteritem" data-value="Új építésű">
+                            <div class="radio {% if filter.allapot is defined %}{% if filter.allapot is iterable %}{% if 'Új építésű' in filter.allapot %}selected{% endif %}{% else %}{% if filter.allapot == 'Új építésű' %}selected{% endif %}{% endif %}{% endif %}"></div>
+                            <p class="elem">Új építésű</p>
+                        </div>
+                        <div class="filteritem" data-value="Nagyon jó állapotú">
+                            <div class="radio {% if filter.allapot is defined %}{% if filter.allapot is iterable %}{% if 'Nagyon jó állapotú' in filter.allapot %}selected{% endif %}{% else %}{% if filter.allapot == 'Nagyon jó állapotú' %}selected{% endif %}{% endif %}{% endif %}"></div>
+                            <p class="elem">Nagyon jó állapotú</p>
+                        </div>
+                        <div class="filteritem" data-value="Jó állapotú">
+                            <div class="radio {% if filter.allapot is defined %}{% if filter.allapot is iterable %}{% if 'Jó állapotú' in filter.allapot %}selected{% endif %}{% else %}{% if filter.allapot == 'Jó állapotú' %}selected{% endif %}{% endif %}{% endif %}"></div>
+                            <p class="elem">Jó állapotú</p>
+                        </div>
+                        <div class="filteritem" data-value="Lakható">
+                            <div class="radio {% if filter.allapot is defined %}{% if filter.allapot is iterable %}{% if 'Lakható' in filter.allapot %}selected{% endif %}{% else %}{% if filter.allapot == 'Lakható' %}selected{% endif %}{% endif %}{% endif %}"></div>
+                            <p class="elem">Lakható</p>
+                        </div>
+                        <div class="filteritem" data-value="Felújítandó">
+                            <div class="radio {% if filter.allapot is defined %}{% if filter.allapot is iterable %}{% if 'Felújítandó' in filter.allapot %}selected{% endif %}{% else %}{% if filter.allapot == 'Felújítandó' %}selected{% endif %}{% endif %}{% endif %}"></div>
+                            <p class="elem">Felújítandó</p>
+                        </div>
+                        <div class="filteritem" data-value="Lakhatatlan">
+                            <div class="radio {% if filter.allapot is defined %}{% if filter.allapot is iterable %}{% if 'Lakhatatlan' in filter.allapot %}selected{% endif %}{% else %}{% if filter.allapot == 'Lakhatatlan' %}selected{% endif %}{% endif %}{% endif %}"></div>
+                            <p class="elem">Lakhatatlan</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="selector">
+                    <button class="btn filter">
+                        <div class="img_container">
+                            <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="layer-group" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-layer-group fa-w-16 fa-9x"><g class="fa-group"><path fill="currentColor" d="M12.41 236.31L70.51 210l161.63 73.27a57.64 57.64 0 0 0 47.72 0L441.5 210l58.09 26.33c16.55 7.5 16.55 32.5 0 40L266.64 381.9a25.68 25.68 0 0 1-21.29 0L12.41 276.31c-16.55-7.5-16.55-32.5 0-40z" class="fa-secondary"></path><path fill="currentColor" d="M12.41 148l232.94 105.7a25.61 25.61 0 0 0 21.29 0L499.58 148c16.55-7.51 16.55-32.52 0-40L266.65 2.32a25.61 25.61 0 0 0-21.29 0L12.41 108c-16.55 7.5-16.55 32.52 0 40zm487.18 216.11l-57.87-26.23-161.86 73.37a57.64 57.64 0 0 1-47.72 0L70.29 337.88l-57.88 26.23c-16.55 7.5-16.55 32.5 0 40L245.35 509.7a25.68 25.68 0 0 0 21.29 0l233-105.59c16.5-7.5 16.5-32.5-.05-40z" class="fa-primary"></path></g></svg>
+                        </div>
+                        Emelet
+                    </button>
+                    <div class="menu filter_element {% if twigFilter.emelet is defined %}show{% endif %}" data-filter-label="emelet" data-filter-value="{% if twigFilter.emelet is defined %}{{ twigFilter.emelet }}{% endif %}">
+                        <div class="filteritem" data-value="Földszint">
+                            <div class="radio"></div>
+                            <p class="elem">Földszint</p>
+                        </div>
+                        <div class="filteritem" data-value="Magasföldszint">
+                            <div class="radio {% if filter.emelet is defined %}{% if filter.emelet is iterable %}{% if 'Magasföldszint' in filter.emelet %}selected{% endif %}{% else %}{% if filter.emelet == 'Magasföldszint' %}selected{% endif %}{% endif %}{% endif %}"></div>
+                            <p class="elem">Magasföldszint</p>
+                        </div>
+                        <div class="filteritem" data-value="Félemelet">
+                            <div class="radio {% if filter.emelet is defined %}{% if filter.emelet is iterable %}{% if 'Félemelet' in filter.emelet %}selected{% endif %}{% else %}{% if filter.emelet == 'Félemelet' %}selected{% endif %}{% endif %}{% endif %}"></div>
+                            <p class="elem">Félemelet</p>
+                        </div>
+                        <div class="filteritem custom_select" data-value="#. emelet">
+                            <div class="radio"></div>
+                            <p class="elem inpt"><input type="text" value="1">. emelet</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="selector">
+                    <button class="btn filter">
+                        <div class="img_container">
+                            <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="mountains" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="svg-inline--fa fa-mountains fa-w-20 fa-9x"><g class="fa-group"><path fill="currentColor" d="M611.14 448h-69.72L357.48 159.68l32.84-50.37c11.57-17.75 39.8-17.75 51.37 0l194 297.6c11.77 18-2.05 41.09-24.55 41.09z" class="fa-secondary"></path><path fill="currentColor" d="M338.33 189.07L503.5 448H30.92C6.81 448-8 422.81 4.58 403.18l207.9-324.66c12.4-19.36 42.64-19.36 55 0z" class="fa-primary"></path></g></svg>
+                        </div>
+                        Kilátás
+                    </button>
+                    <div class="menu filter_element {% if twigFilter.kilatas is defined %}show{% endif %}" data-filter-label="kilatas" data-filter-value="{% if twigFilter.kilatas is defined %}{{ twigFilter.kilatas }}{% endif %}">
+                        <div class="filteritem" data-value="Utca">
+                            <div class="radio {% if filter.kilatas is defined %}{% if filter.kilatas is iterable %}{% if 'Utca' in filter.kilatas %}selected{% endif %}{% else %}{% if filter.kilatas == 'Utca' %}selected{% endif %}{% endif %}{% endif %}"></div>
+                            <p class="elem">Utca</p>
+                        </div>
+                        <div class="filteritem" data-value="Zöldudvar-kert">
+                            <div class="radio {% if filter.kilatas is defined %}{% if filter.kilatas is iterable %}{% if 'Zöldudvar-kert' in filter.kilatas %}selected{% endif %}{% else %}{% if filter.kilatas == 'Zöldudvar-kert' %}selected{% endif %}{% endif %}{% endif %}"></div>
+                            <p class="elem">Zöldudvar-kert</p>
+                        </div>
+                        <div class="filteritem" data-value="Udvar">
+                            <div class="radio {% if filter.kilatas is defined %}{% if filter.kilatas is iterable %}{% if 'Udvar' in filter.kilatas %}selected{% endif %}{% else %}{% if filter.kilatas == 'Udvar' %}selected{% endif %}{% endif %}{% endif %}"></div>
+                            <p class="elem">Udvar</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="selector">
+                    <button class="btn filter">
+                        <div class="img_container">
+                            <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="wheelchair" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-wheelchair fa-w-16 fa-9x"><g class="fa-group"><path fill="currentColor" d="M350.39 359.82a176 176 0 1 1-208.54-196.5c2.53 17.67 5.52 38.63 9.08 63.48A112 112 0 1 0 288 336a114.79 114.79 0 0 0-1.13-16h44.81z" class="fa-secondary"></path><path fill="currentColor" d="M503.12 435.78l-65.46 32.88a32 32 0 0 1-42.89-14.43l-.3-.62L331.68 320H192a32 32 0 0 1-31.68-27.48C126.43 55.31 128.38 70 128 64a64 64 0 1 1 73.37 63.31L206 160h130a16 16 0 0 1 16 16v32a16 16 0 0 1-16 16H215.18l4.57 32H352a32 32 0 0 1 29 18.39l57.48 122.41 36.18-18.35a16 16 0 0 1 21.44 7.22l14.23 28.66a16 16 0 0 1-7.21 21.45z" class="fa-primary"></path></g></svg>
+                        </div>
+                        Akadálymentesített
+                    </button>
+                    <div class="menu filter_element {% if twigFilter.akadalymentesitett is defined %}show{% endif %}" data-filter-label="akadalymentesitett" data-filter-value="{% if twigFilter.akadalymentesitett is defined %}{{ twigFilter.akadalymentesitett }}{% endif %}">
+                        <div class="filteritem" data-value="Igen">
+                            <div class="radio {% if filter.akadalymentesitett is defined %}{% if filter.akadalymentesitett is iterable %}{% if 'Igen' in filter.akadalymentesitett %}selected{% endif %}{% else %}{% if filter.akadalymentesitett == 'Igen' %}selected{% endif %}{% endif %}{% endif %}"></div>
+                            <p class="elem">Igen</p>
+                        </div>
+                        <div class="filteritem" data-value="Nem">
+                            <div class="radio {% if filter.akadalymentesitett is defined %}{% if filter.akadalymentesitett is iterable %}{% if 'Nem' in filter.akadalymentesitett %}selected{% endif %}{% else %}{% if filter.akadalymentesitett == 'Nem' %}selected{% endif %}{% endif %}{% endif %}"></div>
+                            <p class="elem">Nem</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cont">
+            <div class="header">
+                <div class="stats">
+                    <h1>{{ queryCount }} találat</h1>
+                    <h2>{{ displayString }}</h2>
+                </div>
+                <div class="droprendezes">
+                    <div class="global_dropdown rendezes">
+                        <button class="global_dropbtn sorting_menu" -data-dropdown="rendezes" data-label="rendezes" data-value="{% if twigFilter.rendezes is defined %}{{ twigFilter.rendezes }}{% endif %}">{% if twigFilter.rendezes is defined %}{{ twigFilter.rendezes }}{% else %}Rendezés{% endif %}
+                        </button>
+                        <div class="global_dropdown_content" -data-dropdown="rendezes">
+                            <a class="sorting_menu_item">Feltöltés szerint</a>
+                            <a class="sorting_menu_item">Legolcsóbb elől</a>
+                            <a class="sorting_menu_item">Legdrágább elől</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="records">
+                {% if queries|length < 1 %}
+                    <div class="not_found">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="exclamation-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-exclamation-circle fa-w-16 fa-9x"><path fill="currentColor" d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z" class=""></path></svg>
+                        <div class="text">
+                            <h1>Ebben a kategóriában nem találtunk semmit.</h1>
+                            <h3 style="cursor: pointer;" onclick="redirect('{{ path('index_estates') }}')">Összes ingatlan áttekintése</h3>
+                        </div>
+                    </div>
+                {% else %}
+                    {% for query in queries %}
+                    <div class="record" onclick="redirect('{{ path('estate_details') }}/{{ query.slug }}')">
+                        <div class="img" style="background-image: url('https://cdn.prealphouse.hu/image/{{ query.id }}/{{ query.images[0] }}')">
+                            <div class="cover">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="camera-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-camera-alt fa-w-16 fa-9x"><path fill="currentColor" d="M512 144v288c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48h88l12.3-32.9c7-18.7 24.9-31.1 44.9-31.1h125.5c20 0 37.9 12.4 44.9 31.1L376 96h88c26.5 0 48 21.5 48 48zM376 288c0-66.2-53.8-120-120-120s-120 53.8-120 120 53.8 120 120 120 120-53.8 120-120zm-32 0c0 48.5-39.5 88-88 88s-88-39.5-88-88 39.5-88 88-88 88 39.5 88 88zm-120 0c0-17.6 14.4-32 32-32 8.8 0 16-7.2 16-16s-7.2-16-16-16c-35.3 0-64 28.7-64 64 0 8.8 7.2 16 16 16s16-7.2 16-16z" class=""></path></svg>
+                                <p>{{ query.images|length }}</p>
+                            </div>
+                        </div>
+
+                        <div class="container">
+                            <h1>{{ query.title }}</h1>
+                            <h2>{{ query.price|number_format(0, ',', ' ') }} Ft</h2>
+                            <div class="details">
+                                <p class="detail">{{ query.size }} m2</p>
+                                <p class="detail">{{ query.rooms }} szoba</p>
+                                <p class="detail">{{ (query.price / query.size)|number_format(0, ',', ' ') }} Ft/m2</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            
+            {% if queries|length > 0 %}
+                <div class="pagination">
+                    <div class="paginator">
+                        <div class="container">
+                            <div class="element paginator_first {% if estateCount < 20 or page == 1 %}disabled{% endif %}"><svg aria-hidden="true" focusable="false"role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M349.5 475.5l-211.1-211c-4.7-4.7-4.7-12.3 0-17l211.1-211c4.7-4.7 12.3-4.7 17 0l7.1 7.1c4.7 4.7 4.7 12.3 0 17L178.1 256l195.5 195.5c4.7 4.7 4.7 12.3 0 17l-7.1 7.1c-4.7 4.6-12.3 4.6-17-.1zm-111 0l7.1-7.1c4.7-4.7 4.7-12.3 0-17L50.1 256 245.5 60.5c4.7-4.7 4.7-12.3 0-17l-7.1-7.1c-4.7-4.7-12.3-4.7-17 0l-211.1 211c-4.7 4.7-4.7 12.3 0 17l211.1 211c4.8 4.8 12.4 4.8 17.1.1z" class=""></path></svg></div>
+                            <div class="element paginator_previous {% if estateCount < 20 or page == 1 %}disabled{% endif %}"><svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path fill="currentColor" d="M238.475 475.535l7.071-7.07c4.686-4.686 4.686-12.284 0-16.971L50.053 256 245.546 60.506c4.686-4.686 4.686-12.284 0-16.971l-7.071-7.07c-4.686-4.686-12.284-4.686-16.97 0L10.454 247.515c-4.686 4.686-4.686 12.284 0 16.971l211.051 211.05c4.686 4.686 12.284 4.686 16.97-.001z" class=""></path></svg></div>
+                            {% if page != 1 %}<div class="element active">{{ page - 1 }}</div>{% endif %}
+                            <div class="element active">{{ page }}</div>
+                            {% if estateCount > 20 and page != (estateCount / 20)|round(0, 'floor') %}<div class="element active">{{ page - 1 }}</div>{% endif %}
+                            <div class="element paginator_next {% if estateCount < 20 or page == (estateCount / 20)|round(0, 'floor') %}disabled{% endif %}"><svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path fill="currentColor" d="M17.525 36.465l-7.071 7.07c-4.686 4.686-4.686 12.284 0 16.971L205.947 256 10.454 451.494c-4.686 4.686-4.686 12.284 0 16.971l7.071 7.07c4.686 4.686 12.284 4.686 16.97 0l211.051-211.05c4.686-4.686 4.686-12.284 0-16.971L34.495 36.465c-4.686-4.687-12.284-4.687-16.97 0z" class=""></path></svg></div>
+                            <div class="element paginator_last {% if estateCount < 20 or page == (estateCount / 20)|round(0, 'floor') %}disabled{% endif %}"><svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" ><path fill="currentColor" d="M34.5 36.5l211.1 211c4.7 4.7 4.7 12.3 0 17l-211.1 211c-4.7 4.7-12.3 4.7-17 0l-7.1-7.1c-4.7-4.7-4.7-12.3 0-17L205.9 256 10.5 60.5c-4.7-4.7-4.7-12.3 0-17l7.1-7.1c4.6-4.6 12.2-4.6 16.9.1zm111 0l-7.1 7.1c-4.7 4.7-4.7 12.3 0 17L333.9 256 138.5 451.5c-4.7 4.7-4.7 12.3 0 17l7.1 7.1c4.7 4.7 12.3 4.7 17 0l211.1-211c4.7-4.7 4.7-12.3 0-17l-211.1-211c-4.8-4.8-12.4-4.8-17.1-.1z" class=""></path></svg></div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+
+        
+    </div>
+</section>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags( 'searchjs' ) }}
+    {{ encore_entry_script_tags( 'consent' ) }}
+{% endblock %}

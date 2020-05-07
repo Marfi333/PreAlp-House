@@ -1,0 +1,46 @@
+{% extends "./components/page-base.twig" %}
+
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags( 'documentcss' ) }}
+{% endblock %}
+
+{% block body %}
+<section class="content">
+    <h1 class="title title-smaller title-long" style="text-align: left">Céginformáció</h1>
+
+    <div class="main-group">
+        <div class="list-group">
+            <b>Teljes cégnév</b>
+            <p>POWER MAX HUNGARY Korlátolt Felelősségű Társaság</p>
+        </div>
+        <div class="list-group">
+            <b>Ország</b>
+            <p>Magyarország</p>
+        </div>
+        <div class="list-group">
+            <b>Település</b>
+            <p>Budapest</p>
+        </div>
+        <div class="list-group">
+            <b>Cím</b>
+            <p>1033 Budapest, Szentendrei út 89-93. </p>
+        </div>
+        <div class="list-group">
+            <b>Adószám</b>
+            <p>24329033241</p>
+        </div>
+        <div class="list-group">
+            <b>Cégjegyzékszám</b>
+            <p>01 09 172422</p>
+        </div>
+
+        <p style="margin-top: 15px">További információk: <a target="_blank" href="https://www.ceginformacio.hu/cr9310033541">https://www.ceginformacio.hu/cr9310033541</a></p>
+    </div>
+</section>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags( 'homepagejs' ) }}
+    {{ encore_entry_script_tags( 'consent' ) }}
+{% endblock %}

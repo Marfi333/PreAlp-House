@@ -1,0 +1,59 @@
+{% extends "./components/admin-base.twig" %}
+
+
+{% block stylesheets %}
+    {#{{ encore_entry_link_tags( 'estatecss' ) }}#}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="breadcrumb">
+        <a class="active" onclick="redirect('{{ path('admin_dashboard') }}')">Adminisztráció</a>
+        <a class="current">Ingatlanok</a>
+        <a class="current">Áttekintés</a>
+    </div>
+    <h1 class="title">Ingatlanok áttekintése</h1>
+
+    <div class="control_menu">
+        <h2 class="search_result">Összesen {{ estates|length }} találat</h2>
+        <div class="search_menu">
+            <input type="text" placeholder="Keresés hirdetési azonosító alapján" class="search_input" id="publicIdSearchInput">
+            <input type="button" value="Keresés" class="search_button" id="searchByPublicId">
+        </div>
+    </div>
+
+    <div class="estate_container">
+    {% if estates|length > 0 %}
+        {% for estate in estates %}
+            <div class="estate">
+                <div style="display: flex; align-items: center;">
+                    <div class="details">
+                        <!--<h2 class="id">{{ estate.id }}.<h2>-->
+                        <h2 class="title">{{ estate.title }}</h2>
+                    </div>
+                    <div class="details_second">
+                        <h4>{{ estate.upload.date|date('Y-m-d H:i') }}</h4>
+                        <h4 class="publicId">Publikus azonosító: <span style="font-style: italic">{{ estate.publicId }}</span></h4>
+                    </div>
+                </div>
+                <div class="control_menu_estate">
+                    <a class="private_msg" data-comment="{{ estate.comment }}">Megjegyzés</a>
+                    <a class="view" target="_blank" href="https://prealphouse.hu/ingatlan/{{ estate.slug }}">Megtekintés</a>
+                    <a class="edit" href="https://dashboard.prealphouse.hu/ingatlanok/szerkesztes/{{ estate.id }}">Szerkesztés</a>
+                    <a class="remove removeEstateOverview" data-id="{{ estate.id }}" style="cursor:pointer;">Törlés</a>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="error_container">
+            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="exclamation-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-exclamation-circle fa-w-16 fa-9x"><path fill="currentColor" d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z" class=""></path></svg>
+            <p>Nincs találat</p>
+        </div>
+    {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags( 'dashboardjs' ) }}
+{% endblock %}

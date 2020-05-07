@@ -1,0 +1,34 @@
+@import "~bootstrap/scss/custom-bootstrap.scss";
+
+@import './parts/variables.scss';
+@import './parts/mixins.scss';
+@import './parts/fonts.scss';
+
+
+.message_container
+{
+    margin-top: 20px;
+
+    .messages
+    {
+        background: white;
+        //margin-bottom: 15px;
+        border-radius: 5px;
+        //box-shadow: $shadow;
+        border: $border;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px;
+        padding-top: 0;
+        
+        table
+        {
+            margin-bottom: 0;
+            thead
+            {
+                th {border-top: 0;}
+            }
+        }
+    }
+}

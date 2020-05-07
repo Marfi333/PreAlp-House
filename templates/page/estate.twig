@@ -1,0 +1,256 @@
+{% extends "./components/page-base.twig" %}
+
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags( 'estatecss' ) }}
+{% endblock %}
+
+{% block body %}
+<section class="content">
+    <div class="content-container">
+        <div class="mainbox">
+            <div class="image_box" style="background: white">
+                <div class="estate_image_background_container estate_image_box" data-image-number="0" style="background-image: url('https://cdn.prealphouse.hu/image/{{ estate.id }}/{{ estate.images[0] }}')">
+                    <div class="arrows">
+                        <svg aria-hidden="true" focusable="false" role="img" viewBox="0 0 512 512" class="lightbox_left_button"><path fill="currentColor" d="M256 504C119 504 8 393 8 256S119 8 256 8s248 111 248 248-111 248-248 248zM142.1 273l135.5 135.5c9.4 9.4 24.6 9.4 33.9 0l17-17c9.4-9.4 9.4-24.6 0-33.9L226.9 256l101.6-101.6c9.4-9.4 9.4-24.6 0-33.9l-17-17c-9.4-9.4-24.6-9.4-33.9 0L142.1 239c-9.4 9.4-9.4 24.6 0 34z"></path></svg>
+                        <p class="view lightbox_view_button">Megtekintés</p>
+                        <svg aria-hidden="true" focusable="false" role="img" viewBox="0 0 512 512" class="lightbox_right_button"><path fill="currentColor" d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm113.9 231L234.4 103.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L285.1 256 183.5 357.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L369.9 273c9.4-9.4 9.4-24.6 0-34z"></path></svg>
+                    </div>
+
+                    <div class="dots lightbox_dots_class">
+                    </div>
+                </div>
+            </div>
+
+            <div class="default title_box">
+                <div class="left">
+                    <div class="svg-container">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="home" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="svg-inline--fa fa-home fa-w-18 fa-9x"><g class="fa-group"><path fill="currentColor" d="M336 463.59V368a16 16 0 0 0-16-16h-64a16 16 0 0 0-16 16v95.71a16 16 0 0 1-15.92 16L112 480a16 16 0 0 1-16-16V300.06l184.39-151.85a12.19 12.19 0 0 1 15.3 0L480 300v164a16 16 0 0 1-16 16l-112-.31a16 16 0 0 1-16-16.1z" class="fa-secondary"></path><path fill="currentColor" d="M573.32 268.35l-25.5 31a12 12 0 0 1-16.9 1.65L295.69 107.21a12.19 12.19 0 0 0-15.3 0L45.17 301a12 12 0 0 1-16.89-1.65l-25.5-31a12 12 0 0 1 1.61-16.89L257.49 43a48 48 0 0 1 61 0L408 116.61V44a12 12 0 0 1 12-12h56a12 12 0 0 1 12 12v138.51l83.6 68.91a12 12 0 0 1 1.72 16.93z" class="fa-primary"></path></g></svg>
+                    </div>
+                <h1>{{ estate.title }}</h1>
+                </div>
+                <h2>{{ estate.price|number_format(0,',',' ') }} Ft</h2>
+            </div>
+
+            <div class="default details_box">
+                <div class="title">
+                    <div class="svg-container">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="sliders-v" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-sliders-v fa-w-14 fa-9x"><g class="fa-group"><path fill="currentColor" d="M80 0H48a16 16 0 0 0-16 16v80h64V16A16 16 0 0 0 80 0zm112 496a16 16 0 0 0 16 16h32a16 16 0 0 0 16-16v-48h-64zm-160 0a16 16 0 0 0 16 16h32a16 16 0 0 0 16-16V192H32zM240 0h-32a16 16 0 0 0-16 16v336h64V16a16 16 0 0 0-16-16zm112 496a16 16 0 0 0 16 16h32a16 16 0 0 0 16-16V320h-64zM400 0h-32a16 16 0 0 0-16 16v208h64V16a16 16 0 0 0-16-16z" class="fa-secondary"></path><path fill="currentColor" d="M112 96H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h96a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm320 128h-96a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h96a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zM272 352h-96a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h96a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z" class="fa-primary"></path></g></svg>
+                    </div>
+                    <h1>Adatok</h1>
+                </div>
+
+                <div class="data">
+                    <div class="detail_box">
+                        <div class="detail">
+                            <div class="img_container">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="chimney" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-chimney fa-w-16 fa-9x"><g class="fa-group"><path fill="currentColor" d="M160 224H32v128h128zM32 512h288V384H32zm320 0h128V384H352zM192 224v128h288V224z" class="fa-secondary"></path><path fill="currentColor" d="M0 160V32A32 32 0 0 1 32 0h448a32 32 0 0 1 32 32v128a32 32 0 0 1-32 32H32a32 32 0 0 1-32-32z" class="fa-primary"></path></g></svg>
+                            </div>
+                            <div class="detail_container">
+                                <h4>Szerkezet</h4>
+                                <h5>{{ estate.structure }}</h5>
+                            </div>
+                        </div>
+
+                        <div class="detail">
+                            <div class="img_container">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="fireplace" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="svg-inline--fa fa-fireplace fa-w-20 fa-9x"><g class="fa-group"><path fill="currentColor" d="M371.2 281.6a289.37 289.37 0 0 0-28.9 30 390.58 390.58 0 0 0-51.1-55.6c-50.5 45.6-86.4 105-86.4 140.8a115.2 115.2 0 0 0 230.4 0c0-26.6-26.7-81.6-64-115.2zm-13.4 166.9a64.22 64.22 0 0 1-37.8 12.3c-35.3 0-64-24.4-64-64 0-19.7 11.9-37.1 35.6-66.8 3.4 4.1 48.3 64.1 48.3 64.1l28.7-34.2c2 3.5 3.9 6.9 5.5 10.2 13.4 26.6 7.8 60.8-16.3 78.4z" class="fa-secondary"></path><path fill="currentColor" d="M624 0H16A16 16 0 0 0 0 16v64a16 16 0 0 0 16 16h608a16 16 0 0 0 16-16V16a16 16 0 0 0-16-16zM32 512h96V384c0-106 86-192 192-192s192 86 192 192v128h96V128H32z" class="fa-primary"></path></g></svg>
+                            </div>
+                            <div class="detail_container">
+                                <h4>Fűtés</h4>
+                                <h5>{{ estate.heating }}</h5>
+                            </div>
+                        </div>
+
+                        <div class="detail">
+                            <div class="img_container">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="door-closed" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="svg-inline--fa fa-door-closed fa-w-20 fa-9x"><g class="fa-group"><path fill="currentColor" d="M640 464v32a16 16 0 0 1-16 16H16a16 16 0 0 1-16-16v-32a16 16 0 0 1 16-16h608a16 16 0 0 1 16 16z" class="fa-secondary"></path><path fill="currentColor" d="M464 0H176c-26.47 0-48 22.78-48 50.8V448h384V50.8C512 22.78 490.47 0 464 0zm-48 288a32 32 0 1 1 32-32 32 32 0 0 1-32 32z" class="fa-primary"></path></g></svg>
+                            </div>
+                            <div class="detail_container">
+                                <h4>Erkély</h4>
+                                <h5>{% if estate.balcony %}Van{% else %}Nincs{% endif %}</h5>
+                            </div>
+                        </div>
+
+                        <div class="detail">
+                            <div class="img_container">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="mountains" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="svg-inline--fa fa-mountains fa-w-20 fa-9x"><g class="fa-group"><path fill="currentColor" d="M611.14 448h-69.72L357.48 159.68l32.84-50.37c11.57-17.75 39.8-17.75 51.37 0l194 297.6c11.77 18-2.05 41.09-24.55 41.09z" class="fa-secondary"></path><path fill="currentColor" d="M338.33 189.07L503.5 448H30.92C6.81 448-8 422.81 4.58 403.18l207.9-324.66c12.4-19.36 42.64-19.36 55 0z" class="fa-primary"></path></g></svg>
+                            </div>
+                            <div class="detail_container">
+                                <h4>Kilátás</h4>
+                                <h5>{{ estate.view }}</h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="detail_box">
+                        <div class="detail">
+                            <div class="img_container">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="sort-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="svg-inline--fa fa-sort-alt fa-w-12 fa-9x"><g class="fa-group"><path fill="currentColor" d="M379.29 132.69l-80-96a16 16 0 0 0-22.62 0l-80 96C186.65 142.74 193.78 160 208 160h48v304a16 16 0 0 0 16 16h32a16 16 0 0 0 16-16V160h48c14.19 0 21.36-17.24 11.29-27.31z" class="fa-secondary"></path><path fill="currentColor" d="M176 352h-48V48a16 16 0 0 0-16-16H80a16 16 0 0 0-16 16v304H16c-14.19 0-21.36 17.24-11.29 27.31l80 96a16 16 0 0 0 22.62 0l80-96C197.35 369.26 190.22 352 176 352z" class="fa-primary"></path></g></svg>
+                            </div>
+                            <div class="detail_container">
+                                <h4>Lift</h4>
+                                <h5>{% if estate.lift %}Van{% else %}Nincs{% endif %}</h5>
+                            </div>
+                        </div>
+
+                        <div class="detail">
+                            <div class="img_container">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="tools" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-tools fa-w-16 fa-9x"><g class="fa-group"><path fill="currentColor" d="M193.8 227.7L18.74 402.76a64 64 0 0 0 90.5 90.5l148.88-148.88a75.36 75.36 0 0 1 6.58-45.78zM64 472a24 24 0 1 1 24-24 24 24 0 0 1-24 24zm443.73-362.9a12 12 0 0 0-20.12-5.51L413.25 178l-67.88-11.31-11.31-67.93 74.36-74.36a12 12 0 0 0-5.66-20.16 143.92 143.92 0 0 0-136.58 37.93c-39.64 39.64-50.55 97.1-34.05 147.2l-4.43 4.43 70.9 70.9a74.25 74.25 0 0 1 85.4 13.9l7.21 7.21a141.74 141.74 0 0 0 78.61-40 143.94 143.94 0 0 0 37.91-136.71z" class="fa-secondary"></path><path fill="currentColor" d="M501.1 395.7a37.36 37.36 0 0 1 0 52.7l-52.7 52.7a37.18 37.18 0 0 1-52.58.12l-.12-.12L278.6 384c-23.1-23.1-27.5-57.6-13.9-85.4L158.1 192H96L0 64 64 0l128 96v62.1l106.6 106.6a74.25 74.25 0 0 1 85.4 13.9z" class="fa-primary"></path></g></svg>
+                            </div>
+                            <div class="detail_container">
+                                <h4>Állapot</h4>
+                                <h5>{{ estate.condition }}</h5>
+                            </div>
+                        </div>
+
+                        <div class="detail">
+                            <div class="img_container">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="layer-group" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-layer-group fa-w-16 fa-9x"><g class="fa-group"><path fill="currentColor" d="M12.41 236.31L70.51 210l161.63 73.27a57.64 57.64 0 0 0 47.72 0L441.5 210l58.09 26.33c16.55 7.5 16.55 32.5 0 40L266.64 381.9a25.68 25.68 0 0 1-21.29 0L12.41 276.31c-16.55-7.5-16.55-32.5 0-40z" class="fa-secondary"></path><path fill="currentColor" d="M12.41 148l232.94 105.7a25.61 25.61 0 0 0 21.29 0L499.58 148c16.55-7.51 16.55-32.52 0-40L266.65 2.32a25.61 25.61 0 0 0-21.29 0L12.41 108c-16.55 7.5-16.55 32.52 0 40zm487.18 216.11l-57.87-26.23-161.86 73.37a57.64 57.64 0 0 1-47.72 0L70.29 337.88l-57.88 26.23c-16.55 7.5-16.55 32.5 0 40L245.35 509.7a25.68 25.68 0 0 0 21.29 0l233-105.59c16.5-7.5 16.5-32.5-.05-40z" class="fa-primary"></path></g></svg>
+                            </div>
+                            <div class="detail_container">
+                                <h4>Emelet</h4>
+                                <h5>{{ estate.floor }}</h5>
+                            </div>
+                        </div>
+
+                        <div class="detail">
+                            <div class="img_container">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="wheelchair" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-wheelchair fa-w-16 fa-9x"><g class="fa-group"><path fill="currentColor" d="M350.39 359.82a176 176 0 1 1-208.54-196.5c2.53 17.67 5.52 38.63 9.08 63.48A112 112 0 1 0 288 336a114.79 114.79 0 0 0-1.13-16h44.81z" class="fa-secondary"></path><path fill="currentColor" d="M503.12 435.78l-65.46 32.88a32 32 0 0 1-42.89-14.43l-.3-.62L331.68 320H192a32 32 0 0 1-31.68-27.48C126.43 55.31 128.38 70 128 64a64 64 0 1 1 73.37 63.31L206 160h130a16 16 0 0 1 16 16v32a16 16 0 0 1-16 16H215.18l4.57 32H352a32 32 0 0 1 29 18.39l57.48 122.41 36.18-18.35a16 16 0 0 1 21.44 7.22l14.23 28.66a16 16 0 0 1-7.21 21.45z" class="fa-primary"></path></g></svg>
+                            </div>
+                            <div class="detail_container">
+                                <h4>Akadálymentesített</h4>
+                                <h5>{% if estate.handicap == null %}-{% elseif estate.handicap %}Igen{% else %}Nem{% endif %}</h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="detail_box">
+                        <div class="detail">
+                            <div class="img_container">
+                                <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="crop-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-crop-alt fa-w-16 fa-9x"><path fill="currentColor" d="M160 16c0-8.84-7.16-16-16-16h-32c-8.84 0-16 7.16-16 16v80H16c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h80v224c0 17.67 14.33 32 32 32h192v-64H160V16zm336 336h-80V128c0-17.67-14.33-32-32-32H192v64h160v336c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16v-80h80c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z" class=""></path></svg>
+                            </div>
+                            <div class="detail_container">
+                                <h4>Terület</h4>
+                                <h5>{{ estate.size }} m2</h5>
+                            </div>
+                        </div>
+
+                        <div class="detail">
+                            <div class="img_container">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="loveseat" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-loveseat fa-w-16 fa-9x"><path fill="currentColor" d="M160 224v64h192v-64c0-35.3 28.7-64 64-64h32c0-53-43-96-96-96H160c-53 0-96 43-96 96h32c35.3 0 64 28.7 64 64zm288-32h-32c-17.7 0-32 14.3-32 32v96H128v-96c0-17.7-14.3-32-32-32H64c-35.3 0-64 28.7-64 64 0 23.6 13 44 32 55.1V432c0 8.8 7.2 16 16 16h64c8.8 0 16-7.2 16-16v-16h256v16c0 8.8 7.2 16 16 16h64c8.8 0 16-7.2 16-16V311.1c19-11.1 32-31.5 32-55.1 0-35.3-28.7-64-64-64z" class=""></path></svg>
+                            </div>
+                            <div class="detail_container">
+                                <h4>Szobák</h4>
+                                <h5>{{ estate.rooms }} db</h5>
+                            </div>
+                        </div>
+
+                        <div class="detail">
+                            <div class="img_container">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="map-marker-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="svg-inline--fa fa-map-marker-alt fa-w-12 fa-9x"><path fill="currentColor" d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" class=""></path></svg>
+                            </div>
+                            <div class="detail_container">
+                                <h4>Elhelyezkedés</h4>
+                                <h5>{{ location }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="default description_box">
+                <div class="title">
+                    <div class="svg-container">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="file" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="svg-inline--fa fa-file fa-w-12 fa-9x"><path fill="currentColor" d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm160-14.1v6.1H256V0h6.1c6.4 0 12.5 2.5 17 7l97.9 98c4.5 4.5 7 10.6 7 16.9z" class=""></path></svg>
+                    </div>
+                    <h1>Leírás</h1>
+                </div>
+
+                <div class="data">
+                    <div class="text">
+                        {{ estate.description|raw }}
+                    </div>
+                    
+                    <div class="credits">
+                        <p><b>Feltöltés dátuma:&nbsp;</b> {{ upload }}</p>
+                        <p><b>Hirdetés azonosítója:&nbsp;</b> {{ publicId }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebox">
+            <div class="kapcsolat_box">
+                <div class="title_box">
+                    <h1 class="title">Kapcsolat</h1>
+                </div>
+                <div class="content_box">
+                    <h1>Racker Béla</h1>
+                    <h2>+36 20 599 6520</h2>
+                    <h3>rackerb@prealphouse.hu</h3>
+                </div>
+                <div class="content_box">
+                    <h1>Dr. Pribek Erzsébet</h1>
+                    <h2>+36 20 277 7424</h2>
+                    <h3>pribeke@prealphouse.hu</h3>
+                </div>
+            </div>
+
+            <div class="message_box">
+                <div class="title_box">
+                    <h1 class="title">Üzenet küldése</h1>
+                </div>
+                <div class="content_box">
+                    <div class="input_container">
+                        <p class="label">Ön neve <span class="required">*</span></p>
+                        <input class="estate_message_name" type="text">
+                        <p class="error error_name"></p>
+                    </div>
+                    <div class="input_container">
+                        <p class="label">E-mail címe <span class="required">*</span></p>
+                        <input class="estate_message_email" type="text">
+                        <p class="error error_email"></p>
+                    </div>
+                    <div class="input_container">
+                        <p class="label">Telefonszáma</p>
+                        <input class="estate_message_phone" type="text">
+                        <p class="error error_phone"></p>
+                    </div>
+                    <div class="input_container">
+                        <p class="label">Üzenet <span class="required">*</span></p>
+                        <textarea class="estate_message_message" cols="30" rows="10"></textarea>
+                        <p class="error error_message"></p>
+                    </div>
+                    <div class="checkbox_container">
+                        <div class="checkbox estate_message_checkbox"></div>
+                        <p class="label">Az <b onclick="redirect('{{ path('adatvedelmi-tajekoztato') }}')">Adatvédelmi Nyilatkozat</b>-ot elfogadom. <span class="required">*</span></p>
+                    </div>
+                        <p class="outer_error error_checkbox"></p>
+
+                    <button class="submit estate_message_submit">Üzenet küldése</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<input type="hidden" class="imagesArrayInput" value="{{ imageString }}">
+
+<div class="lightbox">
+    <div class="lightbox_container">
+        <div class="lightbox_image">
+            <img class="lightbox_image_tag" src="https://cdn.prealphouse.hu/image/{{ estate.id }}/{{ estate.images[0] }}">
+        </div>
+        <div class="lightbox_control">
+            <svg class="lightbox_main_left_button" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" ><path fill="currentColor" d="M229.9 473.899l19.799-19.799c4.686-4.686 4.686-12.284 0-16.971L94.569 282H436c6.627 0 12-5.373 12-12v-28c0-6.627-5.373-12-12-12H94.569l155.13-155.13c4.686-4.686 4.686-12.284 0-16.971L229.9 38.101c-4.686-4.686-12.284-4.686-16.971 0L3.515 247.515c-4.686 4.686-4.686 12.284 0 16.971L212.929 473.9c4.686 4.686 12.284 4.686 16.971-.001z" class=""></path></svg>
+            <p class="lightbox_main_counter"><span class="lightbox_image_counter">1</span> / {{ estate.images|length }}</p>
+            <svg class="lightbox_main_right_button" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M218.101 38.101L198.302 57.9c-4.686 4.686-4.686 12.284 0 16.971L353.432 230H12c-6.627 0-12 5.373-12 12v28c0 6.627 5.373 12 12 12h341.432l-155.13 155.13c-4.686 4.686-4.686 12.284 0 16.971l19.799 19.799c4.686 4.686 12.284 4.686 16.971 0l209.414-209.414c4.686-4.686 4.686-12.284 0-16.971L235.071 38.101c-4.686-4.687-12.284-4.687-16.97 0z" class=""></path></svg>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags( 'estatejs' ) }}
+    {{ encore_entry_script_tags( 'consent' ) }}
+{% endblock %}

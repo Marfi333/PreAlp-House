@@ -1,0 +1,928 @@
+@import '~normalize.css';
+
+@import './parts/defaults.scss';
+@import './parts/fonts.scss';
+@import './parts/variables.scss';
+@import './parts/mixins.scss';
+
+@import './components/navbar.scss';
+@import './components/footer.scss';
+@import './components/dropdown.scss';
+
+
+.searchbar
+{
+    padding-top: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $main_color_2;
+    position: fixed;
+    z-index: 999;
+
+    .container
+    {
+        padding: 15px;
+
+        .inputContainer
+        {
+            display: flex;
+            font-weight: 300;
+            align-items: center;
+
+            .global_dropdown 
+            {
+                position: relative;
+                display: inline-block;
+
+                .global_dropbtn 
+                {
+                    background-color: $main_color_3;
+                    color: white;
+                    padding: 16px;
+                    font-size: 16px;
+                    border: none;
+                    cursor: pointer;
+                    text-align: left;
+                    height: 45px;
+    
+                    &::-moz-focus-inner
+                    {
+                        border: none;
+                    }
+                }
+                
+                .global_dropbtn:hover, .global_dropbtn:focus 
+                {
+                    background-color: #2980B9;
+                }
+
+                .global_dropdown_content 
+                {
+                    display: none;
+                    position: absolute;
+                    background-color: #f1f1f1;
+                    overflow: auto;
+                    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                    z-index: 1;
+                }
+                
+                .global_dropdown_content a 
+                {
+                    color: black;
+                    padding: 12px 16px;
+                    text-decoration: none;
+                    display: block;
+                    cursor: default;
+
+                    &:hover
+                    {
+                        background-color: #ddd;
+                    }
+                }
+                
+                .show {display: block;}
+            }
+            
+
+            .megbizas-tipusa
+            {
+                width: 113px;
+                font-family: $default_font;
+                border-right: 1px solid lighten(black, 60%);
+
+                .global_dropbtn
+                {
+                    width: inherit;
+
+                    color: black;
+                    background: lighten($background_white, 5%);
+                    padding-left: 25px;
+                    border-top-left-radius: 5px;
+                    border-bottom-left-radius: 5px;
+                    font-size: 15.5px;
+                    letter-spacing: .6px;
+                    display: flex;
+                    align-items: center;
+
+                    &:hover, &:focus
+                    {
+                        background: lighten($background_white, 5%);
+                    }
+
+                    &:after
+                    {
+                        //content: attr(data-label);
+                        content: url('../images/chevron-regular-down.svg');
+                        width: 10px;
+                        height: 10px;
+                        fill: white;
+                        //padding-top: 5px;
+                        font-size: 10px;
+                        position: absolute;
+                        right: 18px;
+                    }
+
+                }
+
+                .global_dropdown_content
+                {
+                    width: inherit;
+                    font-family: inherit;
+
+                    a
+                    {
+                        padding: 8px 15px;
+                    }
+                }
+            }
+
+            .ingatlan-tipusa
+            {
+                width: 110px;
+                font-family: $default_font;
+                border-right: 1px solid lighten(black, 60%);
+
+                .global_dropbtn
+                {
+                    width: inherit;
+
+                    color: black;
+                    background: lighten($background_white, 5%);
+                    padding-left: 25px;
+                    font-size: 15.5px;
+                    letter-spacing: .6px;
+                    display: flex;
+                    align-items: center;
+
+                    &:hover, &:focus
+                    {
+                        background: lighten($background_white, 5%);
+                    }
+
+                    &:after
+                    {
+                        //content: attr(data-label);
+                        content: url('../images/chevron-regular-down.svg');
+                        width: 10px;
+                        height: 10px;
+                        fill: white;
+                        //padding-top: 5px;
+                        font-size: 10px;
+                        position: absolute;
+                        right: 18px;
+                    }
+
+                }
+
+                .global_dropdown_content
+                {
+                    width: inherit;
+                    font-family: inherit;
+
+                    a
+                    {
+                        padding: 8px 15px;
+                    }
+                }
+            }
+
+            .szoveges
+            {
+                border: 0;
+                background: lighten($background_white, 5%);
+                font-family: $default_font;
+                padding-left: 25px;
+                font-size: 15.5px;
+                letter-spacing: .6px;
+                width: 400px;
+                border-right: 1px solid lighten(black, 60%);
+                flex-shrink: 0;
+                height: 45px;
+            }
+
+            .meret
+            {
+                height: 45px;
+                border-right: 1px solid lighten(black, 60%);
+                padding-right: 20px;
+                background: lighten($background_white, 5%);
+                display: inline-flex;
+                position: relative;
+                align-items: center;
+               
+                input
+                {
+                    height: 100%;
+                    border: 0;
+                    background: lighten($background_white, 5%);
+                    font-family: $default_font;
+                    padding-left: 25px;
+                    font-size: 16px;
+                    padding-right: 20px;
+                    letter-spacing: .6px;
+                    width: 53px;
+
+                    -moz-appearance: textfield;
+
+                    &::-webkit-inner-spin-button, &::-webkit-outer-spin-button
+                    {
+                        -webkit-appearance: none;
+                        margin: 0;
+                    }
+                }
+
+                .default
+                {
+                    height: 100%;
+                    border: 0;
+                    background: lighten($background_white, 5%);
+                    font-family: $default_font;
+                    padding-left: 25px;
+                    font-size: 16px;
+                    padding-right: 20px;
+                    letter-spacing: .6px;
+                    width: 70px;
+                }
+
+                .modified
+                {
+                    height: 100%;
+                    border: 0;
+                    background: lighten($background_white, 5%);
+                    font-family: $default_font;
+                    padding-left: 25px;
+                    font-size: 16px;
+                    padding-right: 20px;
+                    letter-spacing: .6px;
+                    width: 30px;
+                }
+
+                .modified:first-child
+                {
+                    //background: blue;
+                    padding-right: 10px;
+                    text-align: right;
+                }
+
+                .separator
+                {
+                    font-weight: 600;
+                }
+
+                .modified:last-child
+                {
+                    //background: red;
+                    padding-left: 10px;
+                    width: 45px;
+                }
+
+                &:after
+                {
+                    //content: attr(data-label);
+                    font-family: $default_font;
+                    content: "m²";
+                    width: 10px;
+                    height: 10px;
+                    fill: white;
+                    margin-top: -5px;
+                    font-size: 12px;
+                    position: absolute;
+                    right: 18px;
+                }
+            }
+
+            .szobak
+            {
+                width: 120px;
+                font-family: $default_font;
+                border-right: 1px solid lighten(black, 60%);
+
+                .global_dropbtn
+                {
+                    width: inherit;
+
+                    color: black;
+                    background: lighten($background_white, 5%);
+                    padding-left: 25px;
+                    font-size: 15.5px;
+                    letter-spacing: .6px;
+                    display: flex;
+                    align-items: center;
+
+                    &:hover, &:focus
+                    {
+                        background: lighten($background_white, 5%);
+                    }
+
+                    &:after
+                    {
+                        //content: attr(data-label);
+                        content: "db";
+                        width: 10px;
+                        height: 10px;
+                        fill: white;
+                        //padding-top: 3.5px;
+                        font-size: 12px;
+                        position: absolute;
+                        right: 18px;
+                    }
+
+                }
+
+                .global_dropdown_content
+                {
+                    width: inherit;
+                    font-family: inherit;
+
+                    a
+                    {
+                        padding: 8px 15px;
+                    }
+                }
+            }
+
+            .ar
+            {
+                height: 45px;
+                //border-right: 1px solid lighten(black, 60%);
+                padding-right: 40px;
+                background: lighten($background_white, 5%);
+                display: inline-flex;
+                position: relative;
+                align-items: center;
+               
+                .default
+                {
+                    height: 100%;
+                    border: 0;
+                    background: lighten($background_white, 5%);
+                    font-family: $default_font;
+                    padding-left: 25px;
+                    font-size: 16px;
+                    padding-right: 20px;
+                    letter-spacing: .6px;
+                    width: 70px;
+                }
+
+                .modified
+                {
+                    height: 100%;
+                    border: 0;
+                    background: lighten($background_white, 5%);
+                    font-family: $default_font;
+                    padding-left: 25px;
+                    font-size: 16px;
+                    padding-right: 20px;
+                    letter-spacing: .6px;
+                    width: 30px;
+                }
+
+                .modified:first-child
+                {
+                    //background: blue;
+                    padding-right: 10px;
+                    text-align: right;
+                }
+
+                .separator
+                {
+                    font-weight: 600;
+                }
+
+                .modified:last-child
+                {
+                    //background: red;
+                    padding-left: 10px;
+                    width: 45px;
+                }
+
+                &:after
+                {
+                    content: attr(data-currency);
+                    font-family: $default_font;
+                    //content: "m²";
+                    fill: white;
+                    padding-top: 1px;
+                    font-size: 12px;
+                    position: absolute;
+                    right: 18px;
+                }
+            }
+
+            .search
+            {
+                border: 0;
+                padding: 0 30px;
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+                color: white;
+                background: $secondary_color;
+                font-family: $default_font;
+                font-size: 16px;
+                letter-spacing: .6px;
+                cursor: pointer;
+                transition: background .3s;
+                display: flex;
+                align-items: center;
+                height: 45px;
+                
+
+                &:hover
+                {
+                    background: darken($secondary_color, 5%);
+                    transition: background .3s;
+                }
+
+                svg
+                {
+                    height: 15px;
+                    margin-right: 8px;
+                    margin-top: 1.5px;
+                }
+
+                &::-moz-focus-inner
+                {
+                    border: 0;
+                }
+            }
+        }
+    }
+}
+
+.content
+{
+    padding-top: 200px;
+    padding-bottom: 60px;
+    @include side_padding;
+
+    .container
+    {
+        display: flex;
+
+        .filter_container
+        {
+            .filter_menu
+            {
+                background: white;
+                width: 350px;
+                margin-right: 40px;
+                height: auto;
+                border: 1px solid #dddfe2;
+                border-radius: 5px;
+                height: auto;
+
+                .selector
+                {
+                    font-family: $roboto;
+
+                    &:last-child
+                    {
+                        .btn
+                        {
+                            border-bottom: none;
+                        }
+
+                        .menu
+                        {
+                            border-bottom: 0;
+                            border-top: 1px solid rgba(0,0,0,.2);
+                        }
+                    }
+
+                    &:first-child
+                    {
+                        .btn
+                        {
+                            border-top: none;
+                        }
+                    }
+
+                    .btn
+                    {
+                        padding: 20px 25px;
+                        width: 100%;
+                        border: 0;
+                        background: transparent;
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+                        color: rgba(0,0,0,.6);
+                        border-bottom: 1px solid rgba(0,0,0,.2);
+                        //border-top: 1px solid rgba(0,0,0,.2);
+                        font-size: 18px;
+                        font-weight: 600;
+                        cursor: pointer;
+                        letter-spacing: .6px;
+                        padding-left: 0;
+
+                        .img_container
+                        {
+                            width: 50px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            svg
+                            {
+                                height: 16px;
+                                //padding-right: 20px;
+                            }
+                        }
+
+                        &:after
+                        {
+                            //content: attr(data-label);
+                            content: url('../images/chevron-regular-down.svg');
+                            width: 10px;
+                            height: 10px;
+                            fill: white;
+                            //margin-top: -2px;
+                            font-size: 10px;
+                            position: absolute;
+                            right: 18px;
+                            opacity: .5;
+                        }
+                    }
+
+                    .show
+                    {
+                        display: flex;
+                    }
+
+                    .menu
+                    {
+                        display: none;
+                        flex-direction: column;
+                        padding: 15px 25px;
+                        padding-bottom: 20px;
+                        border-bottom: 1px solid rgba(0,0,0,.2);
+
+                        .filteritem
+                        {
+                            display: inline-flex;
+                            align-items: center;
+                            margin-bottom: 10px;
+                            cursor: pointer;
+
+                            .radio
+                            {
+                                width: 16px;
+                                height: 16px;
+                                border: 1px solid rgba(0,0,0,.2);
+                                border-radius: 50px;
+                                margin-right: 20px;
+                                position: relative;
+                            }
+
+                            .selected
+                            {
+                                background: rgba(0,0,0,.6);
+                                display: flex;
+                                position: relative;
+
+                                &:after
+                                {
+                                    content: url('../images/check-light.svg');
+                                    position: absolute;
+                                    width: 10px;
+                                    height: 10px;
+                                    margin-top: -1.5px;
+                                    margin-left: 3px;
+                                }
+                            }
+
+                            .elem
+                            {
+                                font-family: $default_font;
+                                color: rgba(0,0,0,.6);
+                                font-weight: 600;
+                                font-size: 15px;
+                                letter-spacing: .7px;
+                            }
+
+                            .inpt
+                            {
+                                display: inline-flex;
+
+                                input
+                                {
+                                    //border-radius: 3px;
+                                    border: 0;
+                                    width: 20px;
+                                    border-bottom: 1px solid rgba(0,0,0,.4);
+                                    font-family: $default_font;
+                                    font-size: 14px;
+                                    padding: 0px 5px;
+                                    margin-right: 2px;
+                                }
+                            }
+                        }
+                    }
+
+                    .show
+                    {
+                        display: flex;
+                    }
+                }
+            }
+        }
+
+        .cont
+        {
+            width: 100%;
+
+            .header
+            {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 20px;
+                font-family: $default_font;
+
+                .stats
+                {
+                    font-family: $roboto;
+
+                    h1
+                    {
+                        margin: 0;
+                        font-size: 32px;
+                        font-weight: 600;
+                    }
+
+                    h2
+                    {
+                        margin: 0;
+                        font-size: 20px;
+                        font-weight: 300;
+                    }
+                }
+
+                .droprendezes
+                {
+                    align-self: flex-end;
+
+                    .rendezes
+                    {
+                        width: 200px;
+
+                        .global_dropbtn
+                        {
+                            width: inherit;
+                            display: inline-flex;
+                            align-items: center;
+                            color: black;
+                            background: transparent;
+                            height: 20px;
+                            padding-right: 40px;
+                            text-align: right !important;
+                            justify-content: flex-end;
+
+                            &:after
+                            {
+                                content: url('../images/chevron-regular-down.svg');
+                                width: 10px;
+                                height: 10px;
+                                fill: white;
+                                font-size: 10px;
+                                position: absolute;
+                                right: 18px;
+                            }
+                        }
+
+                        .global_dropdown_content
+                        {
+                            box-shadow: unset;
+                            border: 1px solid #dddfe2;
+                            width: inherit;
+
+                            a
+                            {
+                                padding: 5px 15px;
+                                text-align: right;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .records
+            {
+                display: grid;
+                grid-template-rows: 1fr;
+                grid-gap: 20px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+
+                .not_found
+                {
+                    margin-top: 20px;
+                    opacity: .6;
+                    display: inline-flex;
+                    font-family: $default_font;
+                    align-items: center;
+
+                    svg
+                    {
+                        height: 80px;
+                        margin-right: 40px;
+                    }
+
+                    .text
+                    {
+                        h1, h3
+                        {
+                            margin: 0;
+                        }
+
+                        h1
+                        {
+                            margin-bottom: 5px;
+                        }
+
+                        h3
+                        {
+                            font-weight: 400;
+                        }
+                    }
+                }
+
+                .record
+                {
+                    width: 100%;
+                    background: white;
+                    border-radius: 5px;
+                    border: 1px solid #dddfe2;
+                    display: flex;
+                    cursor: pointer;
+                    transition: box-shadow .2s, border-right .1s;
+
+                    &:hover
+                    {
+                        box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.1);
+                        border-right: 4px solid $secondary_color;
+                        transition: box-shadow .2s, border-right .1s ease-in;
+                    }
+
+                    .img
+                    {
+                        background-image: attr(data-img, url);
+                        width: 400px;
+                        height: 200px;
+                        background-size: cover;
+                        border-top-left-radius: 5px;
+                        border-bottom-left-radius: 5px;
+                        display: flex;
+
+                        .cover
+                        {
+                            display: flex;
+                            align-items: center;
+                            align-self: flex-end;
+                            padding: 10px;
+
+                            svg
+                            {
+                                height: 20px;
+                                margin-right: 8px;
+                                color: white;
+                            }
+
+                            p
+                            {
+                                font-family: $roboto;
+                                font-size: 20px;
+                                color: white;
+                            }
+                        }
+                    }
+
+                    .container
+                    {
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        font-family: $default_font;
+                        justify-content: space-between;
+                        padding: 40px 30px;
+
+                        h1
+                        {
+                            font-size: 22px;
+                            font-weight: 600;
+                            margin: 0;
+                        }
+
+                        h2
+                        {
+                            font-family: $roboto;
+                            font-size: 20px;
+                            font-weight: 300;
+                        }
+
+                        .details
+                        {
+                            display: flex;
+
+                            .detail
+                            {
+                                background: rgba(0,0,0,.2);
+                                margin-right: 15px;
+                                border-radius: 5px;
+                                padding: 5px 15px;
+                                font-size: 14px;
+                            }   
+                        }
+                    }
+                }
+            }
+
+            .pagination
+            {
+                margin-top: 50px;
+
+                .paginator
+                {
+                    display: flex;
+                    justify-content: center;
+
+                    .container
+                    {
+                        border-radius: 5px;
+                        border: 1px solid #dddfe2;
+                        background: white;
+
+                        .element
+                        {
+                            font-family: $default_font;
+                            font-size: 16px;
+                            padding: 10px 15px;
+                            border-right: 1px solid #dddfe2;
+                            cursor: pointer;
+                            color: #0056b3;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            svg
+                            {
+                                height: 14px;
+                            }
+
+                            &:last-child
+                            {
+                                border-right: none;
+                            }
+
+                            &:hover
+                            {
+                                background: rgba(0,0,0,.2);
+                            }
+
+                            &:first-child
+                            {
+                                &:hover
+                                {
+                                    border-top-left-radius: 5px;
+                                    border-bottom-left-radius: 5px;
+                                }
+                            }
+
+                            &:last-child
+                            {
+                                &:hover
+                                {
+                                    border-top-right-radius: 5px;
+                                    border-bottom-right-radius: 5px;
+                                }
+                            }
+                        }
+
+                        .disabled
+                        {
+                            color: rgba(#0056b3,.5);
+                            cursor: default;
+
+                            &:hover
+                            {
+                                background: inherit;
+                            }
+                        }
+
+                        .active
+                        {
+                            background: #0056b3;
+                            color: white;
+
+                            &:hover
+                            {
+                                background: darken(#0056b3, 10%);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

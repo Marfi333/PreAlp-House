@@ -1,0 +1,17 @@
+@mixin side_padding()
+{
+    padding-left: 250px;
+    padding-right: 250px;
+
+    @media screen and( max-width: 1370px )
+    {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+
+    @media screen and( max-width: 500px )
+    {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}

@@ -1,0 +1,82 @@
+@import 'variables.scss';
+
+
+*:focus
+{
+    outline: none;
+}
+
+body
+{
+    background: $background_grey;
+}
+
+*
+{
+    padding: 0;
+    margin: 0;
+}
+
+.noscroll
+{
+    overflow: hidden;
+}
+
+button::-moz-focus-inner
+{
+    border: 0;
+    outline: none;
+}
+
+button:focus
+{
+    outline: none;
+}
+
+
+.cookie_consent
+{
+    position: fixed;
+    z-index: 99999;
+    max-width: 24em;
+    height: auto;
+    left: 20px;
+    bottom: 20px;
+    background: darken( $main_color_2, 10% );
+    font-family: Helvetica, sans-serif;
+    font-weight: 200;
+
+    .consent_container
+    {
+        padding: 35px;
+        color: white;
+        font-size: 16px;
+        line-height: 1.5;
+        display: flex;
+        flex-direction: column;
+
+        a
+        {
+            color: darken(white, 10%);
+            text-decoration: underline;
+        }
+
+        button
+        {
+            color: rgb(20, 167, 208);
+            border: 2px solid rgb(20, 167, 208);
+            background: transparent;
+            transition: background .2s, color .2s;
+            padding: 12px 0;
+            cursor: pointer;
+            margin-top: 15px;
+
+            &:hover
+            {
+                background: rgb(20, 167, 208);
+                color: white;
+                transition: background .2s, color .2s;
+            }
+        }
+    }
+}

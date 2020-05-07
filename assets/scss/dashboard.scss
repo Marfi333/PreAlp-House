@@ -1,0 +1,512 @@
+@import './parts/variables.scss';
+
+// Required
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+@import '~bootstrap/scss/forms';
+@import '~bootstrap/scss/custom-forms';
+@import '~bootstrap/scss/input-group';
+
+*
+{
+    font-family: $default_font;
+}
+
+body
+{
+    background: $background_white;
+}
+
+nav
+{
+    position: fixed;
+    display: flex;
+    height: 100vh;
+    width: auto;
+    left: 0;
+    top: 0;
+    z-index: 99;
+
+    .main
+    {
+        background: $footer_color;
+        width: 70px;
+
+        .logo
+        {   
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 70px;
+            //border-bottom: 1px solid rgba(black, .2);
+
+            svg
+            {
+                color: white;
+                height: 22px;
+            }
+        }
+
+        .list
+        {
+            padding-top: 20px;
+
+            .item
+            {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                justify-content: center;
+                padding: 22px 0;
+                cursor: pointer;
+
+                svg
+                {
+                    color: white;
+                    height: 22px;
+                }
+
+                &:hover
+                {
+                    background: $main_color_3;
+                }
+            }
+        }
+    }
+
+    .secondary
+    {
+        width: 200px;
+        background: white;
+        box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.03);
+        border-right: 1px solid #dddfe2;
+
+        .logo
+        {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 70px;
+            //border-bottom: 1px solid rgba(#dddfe2, .6);
+
+            p
+            {
+                font-size: 20px;
+                font-weight: 600;
+                color: rgba(black, .8);
+            }
+        }
+
+        .list
+        {
+            padding-top: 45px;
+            padding-left: 30px;
+
+            .item
+            {
+                padding: 10px 0;
+
+                p
+                {
+                    font-family: $roboto;
+                    font-size: 15px;
+                    margin: 0;
+                    cursor: pointer;
+                    color: rgba( black, .7 );
+
+                    &:hover
+                    {
+                        color: black;
+                    }
+                }
+
+                &:first-child
+                {
+                    padding-top: 0;
+                }
+            }
+        }
+    }
+}
+
+.content
+{
+    width: calc(100% - 271px);
+    padding-left: 271px;
+
+    .container
+    {
+        padding: 15px 30px;
+
+        .breadcrumb
+        {
+            margin-bottom: 5px;
+            margin-top: 2px;
+
+            a
+            {
+                &:before
+                {
+                    content: '/';
+                    padding-right: 10px;
+                    color: rgba(black, .5) !important;
+                }
+
+                padding-left: 5px;
+
+                &:first-child
+                {
+                    padding-left: 0;
+
+                    &:before
+                    {
+                        content: '';
+                        padding-right: 0;
+                    }
+                }
+            }
+
+            .active
+            {
+                color: lighten($blue, 10%);
+                cursor: pointer;
+            }
+
+            .current
+            {
+                color: rgba(black, .6);
+                cursor: default;
+            }
+        }
+
+        .title
+        {
+            margin: 0;
+
+        }
+
+        .control_menu
+        {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+
+            h2
+            {
+                margin: 0;
+                font-weight: lighter;
+                font-size: 20px;
+            }
+
+            .search_menu
+            {
+                display: flex;
+                align-items: center;
+                .search_input
+                {
+                    border: 1px solid rgba(black, .4);
+                    border-radius: 50px 0 0 50px;
+                    border-right: 0;
+                    padding: 5px 20px;
+                    width: 210px;
+                }
+
+                .search_button
+                {
+                    border-radius: 0 50px 50px 0;
+                    border: 1px solid rgba(black, .4);
+                    border-left: 0;
+                    padding: 5px 20px;
+                    color: white;
+                    background: $footer_color;
+                    font-weight: bolder;
+                    cursor: pointer;
+
+                    &:hover
+                    {
+                        background: lighten($footer_color, 10%);
+                    }
+                }
+            }
+        }
+
+        .estate_container
+        {
+            margin-top: 20px;
+
+            .estate
+            {
+                background: white;
+                margin-bottom: 15px;
+                border-radius: 5px;
+                box-shadow: $shadow;
+                border: $border;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                &:hover
+                {
+                    .control_menu_estate
+                    {
+                        display: flex;
+                    }
+                }
+
+                .details
+                {
+                    padding: 20px;
+                    display: flex;
+                    align-items: center;
+
+                    h2
+                    {
+                        margin: 0;
+                    }
+
+                    .id
+                    {
+                        font-weight: lighter;
+                        font-family: $roboto;
+                        margin-right: 20px;
+                    }
+
+                    .title
+                    {
+                        margin-right: 25px;
+                        width: 400px;
+                    }
+
+                    h4
+                    {
+                        margin: 0;
+                        font-weight: lighter;
+                        font-size: 20px;
+                    }
+                }
+
+                .details_second
+                {
+                    h4
+                    {
+                        margin: 0;
+                        font-weight: lighter;
+                        font-size: 20px;
+                    }
+
+                    .publicId
+                    {
+                        font-size: 16px;
+                    }
+                }
+
+                .control_menu_estate
+                {
+                    display: none;
+                    align-items: center;
+
+                    .private_msg
+                    {
+                        font-size: 16px;
+                        text-decoration: none; 
+                        margin-right: 20px;
+                        color: #ffc107;
+                        cursor: pointer;
+                    }
+
+                    .view
+                    {
+                        font-size: 16px;
+                        color: $blue;
+                        text-decoration: none; 
+                        margin-right: 20px;
+                    }
+
+                    .edit
+                    {
+                        font-size: 16px;
+                        color: $cyan;
+                        text-decoration: none; 
+                        margin-right: 20px;
+                    }
+
+                    .remove
+                    {
+                        font-size: 16px;
+                        color: $red;
+                        text-decoration: none; 
+                        margin-right: 30px;
+                    }
+                }
+            }
+
+            .error_container
+            {
+                display: flex;
+                color: rgba(black, .7);
+                align-items: center;
+
+                svg
+                {
+                    height: 30px;
+                    margin-right: 15px;
+                }
+
+                p
+                {
+                    font-size: 30px;
+                    margin: 0;
+                    font-weight: bolder;
+                }
+            }
+        }
+
+        .new_estate_container
+        {
+            margin-top: 25px;
+
+            label
+            {
+                margin-bottom: 5px;
+            }
+
+            .customFormLabelInput:before
+            {
+                height: 14px;
+            }
+
+            .save_button
+            {
+                background: $blue;
+                color: white;
+                margin-top: 30px;
+                margin-bottom: 80px;
+                cursor: pointer;
+
+                &:hover
+                {
+                    background: darken( $blue, 10% );
+                }
+            }
+
+            .max_width
+            {
+                width: calc( 60% + 24px ) !important;
+            }
+
+            .title_label
+            {
+                font-family: $roboto;
+                margin-top: 0;
+                font-weight: lighter;
+                margin-bottom: 10px;
+            }
+
+            .end_element
+            {
+                margin-bottom: 20px;
+            }
+
+            .error
+            {
+                color: $red;
+                font-size: 14px;
+                margin: 0;
+                padding-left: 1.5px;
+            }
+
+            .meret-elem
+            {
+                padding-top: 0; 
+                padding-bottom: 0; 
+                font-size: 14px; 
+                width: calc(100% - 36px);
+                padding-right: 20px;
+                display: inline-flex;
+                position: relative;
+                align-items: center;
+
+                &:after
+                {
+                    //content: attr(data-label);
+                    //font-family: $default_font;
+                    content: "m²";
+                    width: 10px;
+                    height: 10px;
+                    fill: black;
+                    margin-top: 2px;
+                    font-size: 12px;
+                    position: absolute;
+                    right: 1px;
+                }
+            }
+
+            .select_bottom_margin
+            {
+                margin-bottom: 4px;
+            }
+
+            .image_container
+            {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, 200px);
+                grid-gap: 20px;
+
+                .selectedMainPicture
+                {
+                    border: 1px solid rgba($blue, .7) !important ;
+                }
+
+                .image_element
+                {
+                    height: 200px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: white;
+                    border: $border;
+                    border-radius: 5px;
+                    position: relative;
+                    padding: 10px;
+
+                    .times
+                    {
+                        position: absolute;
+                        width: 16px;
+                        color: $red;
+                        right: 8px;
+                        top: 6px;
+                        cursor: pointer;
+                    }
+
+                    img
+                    {
+                        max-height: 200px;
+                        cursor: pointer;
+                    }
+
+                    .add_image
+                    {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        cursor: pointer;
+
+                        svg
+                        {
+                            width: 30px;
+                        }
+
+                        p
+                        {
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

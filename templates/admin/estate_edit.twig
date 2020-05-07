@@ -1,0 +1,319 @@
+{% extends "./components/admin-base.twig" %}
+
+
+{% block stylesheets %}
+    {#{{ encore_entry_link_tags( 'estatecss' ) }}#}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="breadcrumb">
+        <a class="active" onclick="redirect('{{ path('admin_dashboard') }}')">Adminisztráció</a>
+        <a class="active" onclick="redirect('{{ path('admin_estate_overview') }}')">Ingatlanok</a>
+        <a class="current">Szerkesztés</a>
+    </div>
+    <h1 class="title">"{{ estate.title }}" ingatlan szerkesztése</h1>
+
+    <div class="new_estate_container">
+        <h2 class="title_label">Képek</h2>
+        <div class="image_container uploaded_image_container" id="imageFieldContainer">
+            {% for image in estate.images %}
+                <div class="image_element imageElementSelectorClass {% if loop.index0 == 0 %}selectedMainPicture{% endif %}"><img class="uploadedPhoto" src="https://cdn.prealphouse.hu/uploads/{{ image }}"><svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="times"><path fill="currentColor" d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z" class=""></path></svg></div>
+            {% endfor %}
+            <div class="image_element add_new_image">
+                <label for="imageInputField" class="add_image">
+                    <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="image" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-image fa-w-16 fa-9x"><path fill="currentColor" d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm-6 336H54a6 6 0 0 1-6-6V118a6 6 0 0 1 6-6h404a6 6 0 0 1 6 6v276a6 6 0 0 1-6 6zM128 152c-22.091 0-40 17.909-40 40s17.909 40 40 40 40-17.909 40-40-17.909-40-40-40zM96 352h320v-80l-87.515-87.515c-4.686-4.686-12.284-4.686-16.971 0L192 304l-39.515-39.515c-4.686-4.686-12.284-4.686-16.971 0L96 304v48z" class=""></path></svg>
+                    <p>Új kép hozzáadása</p>
+                </label>
+                <input id="imageInputField" type="file" name="image" style="display: none;">
+            </div>
+        </div>
+        <p class="error" id="imageErrorTextfield"></p>
+        <div class="end_element"></div>
+
+        <h2 class="title_label">Hirdetés címe</h2>
+        <div>
+            <input value="{{ estate.title }}" id="titleInputField" type="text" class="form-control title_input" placeholder="Eladó stúdiólakás Szombathelyen..." style="width: 60%; padding-top: 0; padding-bottom: 0;">
+            <p class="error" id="titleInputError"></p>
+        </div>
+        <div class="end_element"></div>
+
+        <h2 class="title_label">Ingatlan adatai</h2>
+        <div class="end_element" style="width: calc(60% + 24px); display: grid; grid-template-columns: repeat(4, 1fr); grid-gap: 15px">
+            <div style="display: flex; flex-direction: column">
+                <label>Megbízás típusa</label>
+                <select id="megbizasTipusaField" name="megbizas-tipusa" class="form-control select_bottom_margin custom-select">
+                    <option>-- Válassz --</option>
+                    {% for var in mapping["megbizas-tipusa"] %}
+                        {% if var == estate.orderType %}
+                            <option selected="selected" value="{{ var }}">{{ var }}</option>
+                        {% else %}
+                            <option value="{{ var }}">{{ var }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <p class="error" id="megbizasTipusaError"></p>
+            </div>
+
+            <div style="display: flex; flex-direction: column">
+                <label>Ingatlan típusa</label>
+                <select id="ingatlanTipusaField" name="ingatlan-tipusa" class="form-control select_bottom_margin custom-select">
+                    <option>-- Válassz --</option>
+                    {% for var in mapping["ingatlan-tipusa"] %}
+                        {% if var == estate.estateType %}
+                            <option selected="selected" value="{{ var }}">{{ var }}</option>
+                        {% else %}
+                            <option value="{{ var }}">{{ var }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <p class="error" id="ingatlanTipusaError"></p>
+            </div>
+
+            <div style="display: flex; flex-direction: column">
+                <label>Épület szerkezete</label>
+                <select id="szerkezetField" name="szerkezet" class="form-control select_bottom_margin custom-select">
+                    <option>-- Válassz --</option>
+                    {% for var in mapping.szerkezet %}
+                        {% if var == estate.structure %}
+                            <option selected="selected" value="{{ var }}">{{ var }}</option>
+                        {% else %}
+                            <option value="{{ var }}">{{ var }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <p class="error" id="szerkezetError"></p>
+            </div>
+
+            <div style="display: flex; flex-direction: column">
+                <label>Fűtés típusa</label>
+                <select id="futesField" name="futes" class="form-control select_bottom_margin custom-select">
+                    <option>-- Válassz --</option>
+                    {% for var in mapping.futes %}
+                        {% if var == estate.heating %}
+                            <option selected="selected" value="{{ var }}">{{ var }}</option>
+                        {% else %}
+                            <option value="{{ var }}">{{ var }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <p class="error" id="futesError"></p>
+            </div>
+
+            <div style="display: flex; flex-direction: column">
+                <label>Erkély</label>
+                <select id="erkelyField" name="erkely" class="form-control select_bottom_margin custom-select">
+                    <option>-- Válassz --</option>
+                    {% for var in mapping.erkely %}
+                        {% if var == estate.balcony %}
+                            <option selected="selected" value="{{ var }}">{{ var }}</option>
+                        {% else %}
+                            <option value="{{ var }}">{{ var }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <p class="error" id="erkelyError"></p>
+            </div>
+
+            <div style="display: flex; flex-direction: column">
+                <label>Kilátás</label>
+                <select id="kilatasField" name="kilatas" class="form-control select_bottom_margin custom-select">
+                    <option>-- Válassz --</option>
+                    {% for var in mapping.kilatas %}
+                        {% if var == estate.view %}
+                            <option selected="selected" value="{{ var }}">{{ var }}</option>
+                        {% else %}
+                            <option value="{{ var }}">{{ var }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <p class="error" id="kilatasError"></p>
+            </div>
+
+            <div style="display: flex; flex-direction: column">
+                <label>Lift</label>
+                <select id="liftField" name="lift" class="form-control select_bottom_margin custom-select">
+                    <option>-- Válassz --</option>
+                        <option {% if estate.lift %} selected="selected" {% endif %} value="1">Igen</option>
+                        <option {% if not estate.lift %} selected="selected" {% endif %} value="0">Nem</option>
+                </select>
+                <p class="error" id="liftError"></p>
+            </div>
+
+            <div style="display: flex; flex-direction: column">
+                <label>Állapot</label>
+                <select id="allapotField" name="allapot" class="form-control select_bottom_margin custom-select">
+                    <option>-- Válassz --</option>
+                    {% for var in mapping.allapot %}
+                        {% if var == estate.condition %}
+                            <option selected="selected" value="{{ var }}">{{ var }}</option>
+                        {% else %}
+                            <option value="{{ var }}">{{ var }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <p class="error" id="allapotError"></p>
+            </div>
+
+            <div style="display: flex; flex-direction: column">
+                <label>Emelet</label>
+                <select id="emeletField" name="emelet" class="form-control select_bottom_margin custom-select">
+                    <option>-- Válassz --</option>
+                    {% for var in mapping.emelet %}
+                        {% if var == estate.floor %}
+                            <option selected="selected" value="{{ var }}">{{ var }}</option>
+                        {% elseif var == "*. emelet" %}
+                            <option {% if estate.floor == "1. emelet" %}selected="selected"{% endif %} value="1. emelet">1. emelet</option>
+                            <option {% if estate.floor == "2. emelet" %}selected="selected"{% endif %} value="2. emelet">2. emelet</option>
+                            <option {% if estate.floor == "3. emelet" %}selected="selected"{% endif %} value="3. emelet">3. emelet</option>
+                            <option {% if estate.floor == "4. emelet" %}selected="selected"{% endif %} value="4. emelet">4. emelet</option>
+                            <option {% if estate.floor == "5. emelet" %}selected="selected"{% endif %} value="5. emelet">5. emelet</option>
+                            <option {% if estate.floor == "6. emelet" %}selected="selected"{% endif %} value="6. emelet">6. emelet</option>
+                            <option {% if estate.floor == "7. emelet" %}selected="selected"{% endif %} value="7. emelet">7. emelet</option>
+                            <option {% if estate.floor == "8. emelet" %}selected="selected"{% endif %} value="8. emelet">8. emelet</option>
+                            <option {% if estate.floor == "9. emelet" %}selected="selected"{% endif %} value="9. emelet">9. emelet</option>
+                            <option {% if estate.floor == "10. emelet" %}selected="selected"{% endif %} value="10. emelet">10. emelet</option>
+                        {% else %}
+                            <option value="{{ var }}">{{ var }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <p class="error" id="emeletError"></p>
+            </div>
+            
+            <div style="display: flex; flex-direction: column">
+                <label>Akadálymentesített</label>
+                <select id="akadalymentesitettField" name="akadalymentesitett" class="form-control select_bottom_margin custom-select">
+                    <option>-- Válassz --</option>
+                    <option {% if estate.handicap %} selected="selected" {% endif %} value="Igen">Igen</option>
+                    <option {% if not estate.handicap %} selected="selected" {% endif %} value="Nem">Nem</option>
+                </select>
+                <p class="error" id="akadalymentesitettError"></p>
+            </div>
+
+            <div style="display: flex; flex-direction: column">
+                <label>Szobák</label>
+                <select id="szobakField" name="szobak" class="form-control select_bottom_margin custom-select">
+                    <option>-- Válassz --</option>
+                    {% for var in mapping.szobak %}
+                        {% if var == estate.rooms %}
+                            <option selected="selected" value="{{ var }}">{{ var }}</option>
+                        {% else %}
+                            <option value="{{ var }}">{{ var }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <p class="error" id="szobakError"></p>
+            </div>
+
+            <!--<div style="display: flex; flex-direction: column">
+                <label>Méret</label>
+                <input id="meretField" type="text" class="form-control meret-elem">
+                <p class="error" id="meretError"></p>
+            </div>-->
+            <div style="display: flex; flex-direction: column">
+                <label>Méret</label>
+                <div class="input-group mb-3">
+                    <input value="{{ estate.size }}" id="meretField" style="padding-top: 0; padding-bottom: 0; font-size: 14.5px" type="text" class="form-control" placeholder="150" aria-label="150" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <span class="input-group-text" id="basic-addon2">m2</span>
+                    </div>
+                </div>
+                <p class="error" id="meretError"></p>
+            </div>
+
+            <div style="display: flex; flex-direction: column">
+                <label>Ár</label>
+                <div class="input-group mb-3">
+                    <input value="{{ estate.price }}" id="arField" style="padding-top: 0; padding-bottom: 0; font-size: 14.5px" type="text" class="form-control" placeholder="150 000" aria-label="150" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <span class="input-group-text" id="basic-addon2">Ft</span>
+                    </div>
+                </div>
+                <p class="error" id="arError"></p>
+            </div>
+
+            <div style="display: flex; flex-direction: column">
+                <label>Építés ideje</label>
+                <input {% if estate.build is defined %}value="{{ estate.build|date('Y-m-d') }}"{% endif %} id="buildField" class="form-control" type="date" style="padding-top: 0; padding-bottom: 0; font-size: 14.5px">
+                <p class="error" id="buildError"></p>
+            </div>
+        </div>
+
+        <h2 class="title_label">Ingatlan címe</h2>
+        <div class="end_element" style="width: calc(60% + 24px); display: grid; grid-template-columns: repeat(3, 1fr); grid-gap: 15px">
+            <div style="display: flex; flex-direction: column">
+                <label>Megye</label>
+                <select id="megyeField" name="szobak" class="form-control select_bottom_margin custom-select">
+                    <option>-- Válassz --</option>
+                    <option {% if estate.county == "Baranya" %}selected="selected"{% endif %}>Baranya megye</option>
+                    <option {% if estate.county == "Bács-Kiskun" %}selected="selected"{% endif %}>Bács-Kiskun megye</option>
+                    <option {% if estate.county == "Békés" %}selected="selected"{% endif %}>Békés megye</option>
+                    <option {% if estate.county == "Borsod-Abaúj-Zemplén" %}selected="selected"{% endif %}>Borsod-Abaúj-Zemplén megye</option>
+                    <option {% if estate.county == "Csongrád" %}selected="selected"{% endif %}>Csongrád megye</option>
+                    <option {% if estate.county == "Fejér" %}selected="selected"{% endif %}>Fejér megye</option>
+                    <option {% if estate.county == "Győr-Moson-Sopron" %}selected="selected"{% endif %}>Győr-Moson-Sopron megye</option>
+                    <option {% if estate.county == "Hajdú-Bihar" %}selected="selected"{% endif %}>Hajdú-Bihar megye</option>
+                    <option {% if estate.county == "Heves" %}selected="selected"{% endif %}>Heves megye</option>
+                    <option {% if estate.county == "Jász-Nagykun-Szolnok" %}selected="selected"{% endif %}>Jász-Nagykun-Szolnok megye</option>
+                    <option {% if estate.county == "Komárom-Esztergom" %}selected="selected"{% endif %}>Komárom-Esztergom megye</option>
+                    <option {% if estate.county == "Nógrád" %}selected="selected"{% endif %}>Nógrád megye</option>
+                    <option {% if estate.county == "Pest" %}selected="selected"{% endif %}>Pest megye</option>
+                    <option {% if estate.county == "Somogy" %}selected="selected"{% endif %}>Somogy megye</option>
+                    <option {% if estate.county == "Szabolcs-Szatmár-Bereg" %}selected="selected"{% endif %}>Szabolcs-Szatmár-Bereg megye</option>
+                    <option {% if estate.county == "Tolna" %}selected="selected"{% endif %}>Tolna megye</option>
+                    <option {% if estate.county == "Vas" %}selected="selected"{% endif %}>Vas megye</option>
+                    <option {% if estate.county == "Veszprém" %}selected="selected"{% endif %}>Veszprém megye</option>
+                    <option {% if estate.county == "Zala" %}selected="selected"{% endif %}>Zala megye</option>
+                </select>
+                <p class="error" id="megyeError"></p>
+            </div>
+
+            <div style="display: flex; flex-direction: column">
+                <label>Város</label>
+                <input value="{{ estate.city }}" id="varosField" type="text" class="form-control meret-elem">
+                <p class="error" id="varosError"></p>
+            </div>
+
+            <div style="display: flex; flex-direction: column">
+                <label>Cím</label>
+                <input value="{{ estate.address }}" id="cimField" type="text" class="form-control meret-elem">
+                <p class="error" id="cimError"></p>
+            </div>
+
+            <div style="display: flex; flex-direction: column">
+                <div class="custom-control custom-switch">
+                    <input {% if estate.permission is defined and estate.permission != null %}{% if estate.permission %}checked="true"{% endif %}{% endif %} id="publikusField" type="checkbox" class="custom-control-input">
+                    <label class="custom-control-label customFormLabelInput" for="publikusField">Az ingatlannak publikus a pontos címe</label>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="title_label">Hirdetés leírása</h2>
+        <div class="end_element" id="editor">{{ estate.description|raw }}</div>
+        <p class="error" id="contentError"></p>
+        <div class="end_element"></div>
+
+        <h2 class="title_label" style="margin-top: 20px;">Megjegyzés</h2>
+        <textarea id="megjegyzesField" class="form-control end_element" style="width: 60%; resize: vertical;">{% if estate.comment is defined and estate.comment != null %}{{ estate.comment }}{% endif %}</textarea>
+
+        <button id="updateEstateButton" class="form-control save_button" style="width: calc( 60% + 24px ); cursor: pointer;">Ingatlan módosítása</button>
+    </div>
+    <input type="hidden" name="edit_estate_id" value="{{ estate.id }}">
+
+    <!--<form method="POST" action="/ingatlanok/test" enctype="multipart/form-data">
+        <input type="file" name="image">
+        <button type="submit" class="btn btn-primary">Upload!</button>
+    </form>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+
+        <button type="submit">Submit</button>
+    {{ form_end(form) }}-->
+</div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags( 'editEstatejs' ) }}
+{% endblock %}

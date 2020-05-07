@@ -1,0 +1,91 @@
+{% extends "./components/page-base.twig" %}
+
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags( 'homepagecss' ) }}
+{% endblock %}
+
+{% block body %}
+<section class="landing">
+    <!--<h1 class="title">Mindenhol jó, de a legjobb itt vár rád.</h1>-->
+
+    <div class="container">
+        <div class="inputContainer">
+            
+            <div class="global_dropdown megbizas-tipusa">
+                <button class="global_dropbtn" -data-dropdown="megbizas_tipusa" data-label="megbizas-tipusa" data-value="Kiadó">Kiadó</button>
+                <div class="global_dropdown_content" -data-dropdown="megbizas_tipusa">
+                    <a class="ch" data-currency="ezer Ft">Kiadó</a>
+                    <a class="ch" data-currency="millió Ft">Eladó</a>
+                </div>
+            </div>
+            <div class="global_dropdown ingatlan-tipusa">
+                <button class="global_dropbtn" -data-dropdown="ingatlan_tipusa" data-label="ingatlan-tipusa" data-value="Lakás">Lakás</button>
+                <div class="global_dropdown_content" -data-dropdown="ingatlan_tipusa">
+                    <a>Lakás</a>
+                    <a>Ház</a>
+                </div>
+            </div>
+            <input type="text" class="szoveges" data-label="kifejezes" placeholder="település, megye">
+            <div id="mr" class="meret">
+                <input id="mi" class="default" onfocus="changeInput('m', this);" type="text" placeholder="méret">
+            </div>
+            <div class="global_dropdown szobak">
+                <button id="szmr" class="global_dropbtn" -data-dropdown="szobak" data-label="szobak" data-value="szobák"><span style="color: rgba(0,0,0,.4)">szobák</span></button>
+                <div class="global_dropdown_content" -data-dropdown="szobak">
+                    <a id="szm">mindegy</a>
+                    <a>1</a>
+                    <a>2</a>
+                    <a>3</a>
+                    <a>4</a>
+                    <a>5</a>
+                    <a>6</a>
+                    <a>6+</a>
+                </div>
+            </div>
+            <div id="ar" class="ar" data-currency="ezer Ft">
+                <input id="pi" class="default" onfocus="changeInput('p', this);" type="text" placeholder="ár">
+            </div>
+            <button class="search">
+                    <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-search fa-w-16 fa-9x"><path fill="currentColor" d="M508.5 468.9L387.1 347.5c-2.3-2.3-5.3-3.5-8.5-3.5h-13.2c31.5-36.5 50.6-84 50.6-136C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c52 0 99.5-19.1 136-50.6v13.2c0 3.2 1.3 6.2 3.5 8.5l121.4 121.4c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17zM208 368c-88.4 0-160-71.6-160-160S119.6 48 208 48s160 71.6 160 160-71.6 160-160 160z" class=""></path></svg> Keresés
+            </button>
+
+        </div>
+    </div>
+</section>
+
+<section class="highlighted">
+    <h1 class="title">Kiemelt hirdetéseink</h1>
+    <h2 class="subtitle">Legfrissebb ajánlatunk</h2>
+
+    <div class="content _homepage_content">
+        {% for estate in estates %}
+        <div class="element" onclick="redirect('{{ path('estate_details') ~ '/' ~ estate.slug }}')">
+            <div class="image" style="background-image: url('{{ estate.imageCdn ~ estate.image }}')">
+                <div class="address">
+                    <p>{{ estate.city ~ ', ' ~ estate.county }}</p>
+                </div>
+            </div>
+            <h1>{{ estate.title }}</h1>
+            <h2>{{ estate.price ~ ' Ft' }}</h2>
+            <div class="properties">
+                <p>{{ estate.size ~ ' m2' }}</p>
+                <p>{{ estate.rooms ~ ' szoba' }}</p>
+            </div>
+        </div>
+        {% endfor %}
+
+        <div class="next">
+            <div class="cont" onclick="redirect( '{{ path('index_estates') }}' )">
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-square-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-chevron-square-right fa-w-14 fa-9x"><path fill="currentColor" d="M48 32h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48zm281.941 207.029L194.427 103.515c-9.373-9.373-24.569-9.373-33.941 0l-16.971 16.971c-9.373 9.373-9.373 24.569 0 33.941L245.088 256 143.515 357.573c-9.373 9.373-9.373 24.569 0 33.941l16.971 16.971c9.373 9.373 24.569 9.373 33.941 0L329.942 272.97c9.372-9.372 9.372-24.568-.001-33.941z" class=""></path></svg>
+                <p>További ajánlatok</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags( 'homepagejs' ) }}
+    {{ encore_entry_script_tags( 'consent' ) }}
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "./components/page-base.twig" %}
+
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags( 'documentcss' ) }}
+{% endblock %}
+
+{% block body %}
+<section class="content">
+    <h1 class="title">Sütik kezelése</h1>
+    <h4 class="subtitle">A weboldalunkon sütiket használunk, hogy a legjobb felhasználói élményt nyújthassuk.</h4>
+
+    <div class="cookie-group">
+        <h1>Mi az a süti?</h1>
+        <p>A süti (cookie) egy kis fájl, amely akkor kerül a számítógépre, amikor a felhasználó egy webhelyet látogat meg. A cookie egy információcsomag, amelyet az adott webszerver küld a böngészőnek, majd a böngésző visszaküld a szervernek minden, a szerver felé irányított kérés alkalmával. A sütik „passzívak”, azaz nem tartalmaznak futtatható állományokat, vírusokat, illetve kémprogramokat (spyware), valamint nem férnek hozzá a felhasználó merevlemezének adataihoz. </p>
+    </div>
+
+    <div class="cookie-group">
+        <h1>Mire Használhatóak a sütik?</h1>
+        <p>A sütik lehetővé, hogy az oldal felismerje a felhasználó eszközét. és ezáltal a felhasználó igényeihez igazított tartalom megjelenítését. A sütik a felhasználó számára egyszerűbb böngészést biztosítanak, és elősegítik, hogy az oldal a felhasználó számára minél kényelmesebb szolgáltatásokat és jobb felhasználói élményt nyújtson. Ezek közé tartoznak az online adatbiztonsággal kapcsolatos igények, a vevői kosár vagy a releváns termékek megjelenítése. </p>
+    </div>
+
+    <div class="cookie-group">
+        <h1>Milyen sütiket használunk?</h1>
+        <p>Kétfajta sütit használunk: állandót, valamint időszakosat. Az állandó sütik a paraméterükben meghatározott ideig vannak jelen a felhasználó eszközén, az időszakosak pedig csak ideiglenesen, a böngésző bezárásáig maradnak a felhasználó számítógépén. </p>
+    </div>
+
+    <div class="cookie-group">
+        <h1>Mire használjuk mi a sütiket?</h1>
+        <p>A sütiket a következő célokból használjuk:<br><br>
+            – Weboldalunk fejlesztése<br>
+            – Böngészés-elemzés<br>
+            – Weboldalon végzett tevékenységek nyomon követésére<br>
+            – Feliratkozási szokások mérése<br>
+            – Böngésző felhasználók azonosítása<br>
+            – Célzott hirdetések elhelyezése más weboldalakon </p>
+    </div>
+
+    <div class="cookie-group">
+        <h1>Hogyan lehet a sütiket ellenőrizni és kikapcsolni?</h1>
+        <p>Minden modern böngésző engedélyezi a sütik beállításának a változtatását. A legtöbb böngésző alapértelmezettként automatikusan elfogadja a sütiket, de ezek általában megváltoztathatóak, hogy megakadályozza az automatikus elfogadást és minden alkalommal felajánlja a választás lehetőségét, hogy szeretnél vagy nem sütiket engedélyezni. <br><br>
+
+        Felhívjuk a figyelmedet, hogy mivel a sütik célja weboldalunk használhatóságának és folyamatainak megkönnyítése vagy lehetővé tétele, a cookie-k alkalmazásának megakadályozása vagy törlése által előfordulhat, hogy felhasználóink nem lesznek képesek weboldalunk funkcióinak teljes körű használatára, illetve hogy a weboldal a tervezettől eltérően fog működni böngészőjében. </p>
+    </div>
+</section>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags( 'homepagejs' ) }}
+    {{ encore_entry_script_tags( 'consent' ) }}
+{% endblock %}

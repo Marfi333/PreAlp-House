@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>PreAlp House Ingatlaniroda | Bejelentkezés</title>
+        {{ encore_entry_link_tags('logincss') }}
+    </head>
+    <body>
+        <div class="login_container">
+            <p class="back" onclick="redirect('https://prealphouse.hu')">Vissza a főoldalra</p>
+            <div class="login_container_inner">
+                <div class="logo"></div>
+                <h1 class="title">Adminisztrációs felület</h1>
+                <div class="login_form">
+                    <form action="{{ path('admin_login_process') }}" method="POST">
+                        <p class="label">Felhasználónév vagy email cím</p>
+                        <input name="username" type="text" class="login_input" {% if username is defined and username is not null %}value="{{ username }}"{% endif %}>
+                        <p class="label">Jelszó</p>
+                        <input name="password" type="password" class="login_input">
+                        {% if error %}
+                        <div class="error_container">
+                            {% for errors in errorList %}
+                            <p>{{ errors }}</p>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        <input class="confirm_button" type="submit" value="Bejelentkezés">
+                        <input type="hidden" name="token" value="{{ csrf_token('login') }}"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('loginjs') }}
+        {% endblock %}
+    </body>
+</html>

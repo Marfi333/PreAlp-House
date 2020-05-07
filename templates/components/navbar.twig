@@ -1,0 +1,29 @@
+<nav class="header_navbar">
+    <div class="header_navbar_container">
+        <div class="navbar_logo" onclick="redirect( '{{ path('homepage') }}' )">
+            <img src="{{ asset( 'build/images/prealphouse-logo.png' ) }}">
+            <div class="navbar_logo_name">
+                <p class="navbar_logo_main_text">Pre-Alp <span class="logo_main_text_secondary">House</span></p>
+                <p class="navbar_logo_secondary_text">Ingatlaniroda</p>
+            </div>
+        </div>
+        <div class="navbar_menu">
+            <div class="menu_line_before"></div>
+            <ul class="menu_list">
+                <li onclick="redirect( '{{ path('index_estates') }}' )" class="menu_item" data-line="l1">Ingatlanok</li>
+                <li class="menu_item" data-line="l2">Értékesítőink</li>
+                <li class="menu_item" data-line="l3">Kapcsolat</li>
+                <li onclick="redirect( '{{ path('index_estates') }}' )" class="menu_item" data-line="l4">Keresés</li>
+            </ul>
+            <div class="list_line">
+                <div class="l1"></div>
+                <div class="l2"></div>
+                <div class="l3"></div>
+                <div class="l4"></div>
+            </div>
+        </div>
+        <div class="navbar_menu_hamburger">
+            <img class="menu_item" src="{{ asset( 'build/images/hamburger-menu-icon.svg' ) }}">
+        </div>
+    </div>
+</nav>

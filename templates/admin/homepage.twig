@@ -1,0 +1,16 @@
+{% extends "./components/admin-base.twig" %}
+
+
+{% block stylesheets %}
+    {#{{ encore_entry_link_tags( 'estatecss' ) }}#}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="title">Kezdőlap</h1>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags( 'dashboardjs' ) }}
+{% endblock %}

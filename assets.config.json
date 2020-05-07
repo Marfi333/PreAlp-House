@@ -1,0 +1,74 @@
+{
+    "assetsPath": "./assets/",
+    "outputPath": "public/build/",
+    "publicPath": "/build",
+
+    "assets": {
+        "scss": 
+        [
+            {
+                "name": "homepagecss",
+                "path": "homepage.scss"
+            },
+            {
+                "name": "searchcss",
+                "path": "search.scss"
+            },
+            {
+                "name": "estatecss",
+                "path": "estate.scss"
+            },
+            {
+                "name": "logincss",
+                "path": "login.scss"
+            },
+            {
+                "name": "dashboardcss",
+                "path": "dashboard.scss"
+            },
+            {
+                "name": "messagecss",
+                "path": "message.scss"
+            },
+            {
+                "name": "documentcss",
+                "path": "document.scss"
+            }
+        ],
+        "js": 
+        [
+            {
+                "name": "homepagejs",
+                "path": "homepage.js"
+            },
+            {
+                "name": "searchjs",
+                "path": "search.js"
+            },
+            {
+                "name": "estatejs",
+                "path": "estate.js"
+            },
+            {
+                "name": "dashboardjs",
+                "path": "dashboard.js"
+            },
+            {
+                "name": "loginjs",
+                "path": "login.js"
+            },
+            {
+                "name": "newEstatejs",
+                "path": "new_estate.js"
+            },
+            {
+                "name": "editEstatejs",
+                "path": "edit_estate.js"
+            },
+            {
+                "name": "consent",
+                "path": "consent.js"
+            }
+        ]
+    }
+}

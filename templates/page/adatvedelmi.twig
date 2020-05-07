@@ -1,0 +1,617 @@
+{% extends "./components/page-base.twig" %}
+
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags( 'documentcss' ) }}
+{% endblock %}
+
+{% block body %}
+<section class="content">
+    <h1 class="title title-smaller">Adatkezelési és adatvédelmi tájékoztató</h1>
+
+    <div class="main-group">
+        <h1>1. Bevezetés</h1>
+        <p>A Pre-Alp House Ingatlaniroda adatkezelője  Szabóné dr. Pribek Erzsébet (9743 Söpte, József Attila u. 16A nyilvsz: 53004462 adószám:69314100-1-38) mint  adatkezelő valamennyi adatkezelése során az alábbi adatkezelési szabályzat (a továbbiakban: Szabályzat) szerint jár el.</p>
+        <p>Kötelezettséget vállal arra, hogy tevékenységével kapcsolatos minden adatkezelés megfelel ezen tájékoztatóban, valamint az európai és a hazai jogszabályokban meghatározott elvárásoknak. A Pre-Alp House Ingatlaniroda adatkezeléseivel kapcsolatosan felmerülő adatvédelmi irányelvek elérhetők a <a href="https://prealphouse.hu">https://prealphouse.hu</a> címen. A Pre-Alp House Ingatlaniroda fenntartja magának a jogot jelen tájékoztató megváltoztatására. Az esetleges változásokról kellő időben értesíti partnereit.</p>
+        <p>Jelen adatkezelési tájékoztatóval kapcsolatos kérdése esetén, kérjük, az info@prealphouse.hu e-mail címen keresztül vegye fel a kapcsolatot velünk.</p>
+        <p>A Pre-Alp House Ingatlaniroda elkötelezett ügyfelei és partnerei személyes adatainak védelmében, kiemelten fontosnak tartja ügyfelei információs önrendelkezési jogának tiszteletben tartását. A Pre-Alp House Ingatlaniroda a személyes adatokat bizalmasan kezeli, és megtesz minden olyan biztonsági, technikai és szervezési intézkedést, amely az adatok biztonságát garantálja. Pre-Alp House Ingatlaniroda az alábbiakban ismerteti adatkezelési gyakorlatát.</p>
+    </div>
+
+    <div class="main-group">
+        <h1>2. PRE-ALP HOUSE INGATLANIRODA TEVÉKENYSÉGÉT SZABÁLYOZÓ ADATVÉDELEMMEL KAPCSOLATOS HATÁLYOS JOGSZABÁLYOK</h1>
+        <p>A Pre-Alp House Ingatlaniroda adatkezelési alapelvei összhangban vannak az adatvédelemmel kapcsolatos hatályos jogszabályokkal, így különösen az alábbiakkal:</p>
+        <div class="secondary-group">
+            <p>2011. évi CXII. törvény - az információs önrendelkezési jogról és az információszabadságról (Infotv.);</p>
+            <p>Az Európai Parlament és a Tanács (EU) 2016/679 rendelete (2016. április 27.) – a természetes személyeknek a személyes adatok kezelése tekintetében történő védelméről és az ilyen adatok szabad áramlásáról, valamint a 95/46/EK rendelet hatályon kívül helyezéséről (általános adatvédelmi rendelet, GDPR);</p>
+            <p>2013. évi V. törvény – a Polgári Törvénykönyvről (Ptk.);</p>
+            <p>2000. évi C. törvény – a számvitelről (Számv. tv.);</p>
+            <p>2009. évi LXXVI. törvény – a szolgáltatási tevékenység megkezdésének és folytatásának általános szabályairól;</p>
+            <p>54/1997. (VIII. 1.) FM rendelet – a termőföld hitelbiztosítéki értéke meghatározásának módszertani elveiről;</p>
+            <p>25/1997. (VIII. 1.) PM rendelet – a termőföldnek nem minősülő ingatlanok hitelbiztosítéki értékének meghatározására vonatkozó módszertani elvekről</p>
+        </div>
+    </div>
+
+    <div class="main-group">
+        <h1>3. Fogalom</h1>
+        <div class="secondary-group">
+            <p>3.1. <u>Adat:</u> bármilyen tény, információ, nyilatkozat, stb., függetlenül annak megjelenési formájától, hordozójától.</p>
+            <p>3.2. <u>Adathordozó:</u> adat tárolására, továbbítására, megőrzésére alkalmas bármilyen eszköz (papír, elektronikus hordozók, stb.)</p>
+            <p>3.3. <u>Érintett:</u> bármely meghatározott, személyes adat alapján azonosított vagy – közvetlenül vagy közvetve – azonosítható természetes személy.</p>
+            <p>3.4. <u>Személyes adat:</u> az érintettel kapcsolatba hozható adat – különösen az érintett neve, azonosító jele, valamint egy vagy több fizikai, fiziológiai, mentális, gazdasági, kulturális vagy szociális azonosságára jellemző ismeret –, valamint az adatból levonható, az érintettre vonatkozó következtetés.</p>
+            <p>3.5. <u>Különleges adat:</u></p>
+
+            <div class="secondary-group">
+                <p>1. A faji eredetre, a nemzetiséghez tartozásra, a politikai véleményre vagy pártállásra, a vallási, vagy más világnézeti meggyőződésre, az érdek-képviseleti szervezeti tagságra, a szexuális életre vonatkozó személyes adat,</p>
+                <p>az egészségi állapotra, a kóros szenvedélyre vonatkozó személyes adat, valamint a bűnügyi személyes adat.</p>
+                <div class="secondary-group">
+                    <ul>
+                        <li>Hozzájárulás: az érintett kívánságának önkéntes és határozott kinyilvánítása, amely megfelelő tájékoztatáson alapul, és amellyel félreérthetetlen beleegyezését adja a rá vonatkozó személyes adatok – teljes körű vagy egyes műveletekre kiterjedő – kezeléséhez.</li>
+                        <li>Tiltakozás: az érintett nyilatkozata, amellyel személyes adatainak kezelését kifogásolja, és az adatkezelés megszüntetését, illetve a kezelt adatok törlését kéri.</li>
+                        <li>Adatkezelő: az a természetes vagy jogi személy, illetve jogi személyiséggel nem rendelkező szervezet, aki vagy amely önállóan vagy másokkal együtt az adatok kezelésének célját meghatározza, az adatkezelésre (beleértve a felhasznált eszközt is) vonatkozó döntéseket meghozza és végrehajtja, vagy az általa megbízott adatfeldolgozóval végrehajtatja.</li>
+                        <li>Adatkezelés: az alkalmazott eljárástól függetlenül az adatokon végzett bármely művelet vagy a műveletek összessége, így különösen gyűjtése, felvétele, rögzítése, rendszerezése, tárolása, megváltoztatása, felhasználása, lekérdezése, továbbítása, nyilvánosságra hozatala, összehangolása vagy összekapcsolása, zárolása, törlése és megsemmisítése, valamint az adatok további felhasználásának megakadályozása, fénykép-, hang- vagy képfelvétel készítése, valamint a személy azonosítására alkalmas fizikai jellemzők (például ujj- vagy tenyérnyomat, DNS-minta, íriszkép) rögzítése.</li>
+                        <li>Adattovábbítás: az adat meghatározott harmadik személy számára történő hozzáférhetővé tétele.</li>
+                        <li>Nyilvánosságra hozatal: az adatok bárki számára történő hozzáférhetővé tétele.</li>
+                        <li>Adattörlés: az adatok felismerhetetlenné tétele oly módon, hogy a helyreállításuk többé nem lehetséges.</li>
+                        <li>Adatzárolás: az adat azonosító jelzéssel ellátása további kezelésének végleges vagy meghatározott időre történő korlátozása céljából.</li>
+                        <li>Adatmegsemmisítés: az adatokat tartalmazó adathordozó teljes fizikai megsemmisítése.</li>
+                        <li>Adatfeldolgozás: az adatkezelési műveletekhez kapcsolódó technikai feladatok elvégzése, függetlenül a műveletek végrehajtásához alkalmazott módszertől és eszköztől, valamint az alkalmazás helyétől, feltéve, hogy a technikai feladatot az adatokon végzik.</li>
+                        <li>Adatfeldolgozó: az a természetes vagy jogi személy, illetve jogi személyiséggel nem rendelkező szervezet, aki, vagy amely az adatkezelővel kötött szerződése alapján – beleértve a jogszabály rendelkezése alapján történő szerződéskötést is – adatok feldolgozását végzi.</li>
+                        <li>Személyesadat-nyilvántartó rendszer (nyilvántartó rendszer): személyes adatok bármely strukturált, funkcionálisan vagy földrajzilag centralizált, decentralizált vagy szétszórt állománya, amely meghatározott ismérvek alapján hozzáférhető.</li>
+                        <li>Adatállomány: az egy nyilvántartó rendszerben kezelt adatok összessége.</li>
+                        <li>Harmadik személy: olyan természetes vagy jogi személy, illetve jogi személyiséggel nem rendelkező szervezet, aki, vagy amely nem azonos az érintettel, az adatkezelővel vagy az adatfeldolgozóval.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-group">
+        <h1>4. A SZEMÉLYES ADATOK KÖRE, AZ ADATKEZELÉS CÉLJA, JOGCÍME ÉS IDŐTARTAMA, AZ ADATTOVÁBBÍTÁS ÉS AZ ADATFELDOLGOZÓK</h1>
+
+        <p>A Pre-Alp House Ingatlaniroda tevékenységének adatkezelései az alábbiakon alapulnak:</p>
+        <div class="secondary-group">
+            <ul>
+                <li>érintett hozzájárulásán, GDPR 6. cikk (1) bek. a) pont;</li>
+                <li>szerződés teljesítésén, GDPR 6. cikk (1) bek. b) pont;</li>
+                <li>adatkezelőre vonatkozó jogi kötelezettség teljesítésén, GDPR 6. cikk (1) bek. c) pont;</li>
+                <li>az adatkezelő jogos érdekeinek érvényesítésén, GDPR 6. cikk (1) bek. f) pont;</li>
+            </ul>
+        </div>
+        <p>Az érintett – vagyis az Ön – hozzájárulásán alapuló adatkezelés esetén a hozzájárulását az adatkezelés bármely szakában visszavonhatja.</p>
+        <p>Amennyiben az adatkezelés az Ön hozzájárulásán alapul, a Pre-Alp House Ingatlaniroda a felvett adatokat további, külön hozzájárulása nélkül, valamint a hozzájárulás visszavonását követően is kezelheti, amennyien ez jogi kötelezettség teljesítése céljából, avagy az adatkezelő vagy az érintetten kívüli személy jogos érdekének érvényesítése céljából szükséges.</p>
+        <p>Bizonyos esetekben a megadott adatok egy részének kezelését, tárolását, továbbítását jogszabályok teszik kötelezővé, melyről külön értesítjük partereinket.</p>
+        <p>Az adatkezelő, az Ön személyes adatait harmadik személynek csak jogszabályi rendelkezés esetén adja át, vagy ha Ön ahhoz a megfelelő tájékoztatását követően előzetesen hozzájárult.</p>
+        <p>Felhívjuk a figyelmét arra, hogy amennyiben nem a saját személyes adatait adja meg, akkor, mint adatközlő kötelessége az érintettől az adatközlésre vonatkozó hozzájárulását beszerezni, és az érintettet – dokumentált módon – tájékoztatni arról, hogy a szerződésében foglalt feladatainak ellátása érdekében a Pre-Alp House Ingatlaniroda kezeli az érintett személyes adatait. Az érintettnek adott tájékoztatóban ki kell térnie az adatkezelési folyamatban meghatározott tevékenységnek megfelelő, az alábbiakban részletezett adatkezelési szabályokra.</p>
+        <p><i>Adatfeldolgozók:</i></p>
+        <p>Személyes adatok feldolgozásához az Adatkezelő az alábbi Adatfeldolgozók közreműködését veszi igénybe:</p>
+        <p><u>Tárhely:</u> Hetzner Online GmbH <br><u>Székhely:</u> Industriestr. 25,   91710 Gunzenhausen, Németország <br><u>Adatfeldolgozói feladat:</u> email fiók kiszolgálása,az e-mail fiókhoz kapcsolódó tevékenységek biztosítása, weblap figyelő analitika biztosítása</p>
+        <p>Az Adatkezelő a megjelölt céloktól eltérő célra a személyes adatokat nem használja. Azokat az Adatkezelő munkatársai, kizárólag a feladataik elvégzéséhez elengedhetetlenül szükséges mértékben és ideig kezelhetik.</p>
+    </div>
+
+    <div class="main-group">
+        <h1>5. Ügyfél adatkezelések</h1>
+
+        <div class="secondary-group">
+            <h1>5.1. Ingatlan közvetítés,bérbeadás</h1>
+
+            <p>Az Pre-Alp House Ingatlaniroda kijelenti, hogy kizárólag olyan személyes adatokat kezel, amelyeket az érintettek az ingatlanközvetítői tevékenység során önkéntesen megadnak és az adatkezeléshez hozzájárulnak és / vagy nyilvánosak, beleértve a Megbízók által átadott fotódokumentációt, melynek tartalmi megjelenítéséhez Érintett hozzájárult a jelen Adatvédelmi Szabályzat elfogadásával, és amelyek tartalmát az Pre-Alp House Ingatlaniroda nem vizsgálja, azok tekintetében a felelősség az Érintettet terheli.</p>
+            <p>Az Pre-Alp House Ingatlaniroda a közvetítői tevékenységben közvetlenül részt vevő partnerek részére az ingatlanközvetítői tevékenység végzéséhez nyomtatványokat rendszeresít. Az ingatlanközvetítési ügylet megbízói, illetve azok a természetes és jogi személyek, vagy más szervezetek, akik az ingatlanközvetítési ügyletben részt vesznek (ingatlant tekintenek meg az Pre-Alp House Ingatlaniroda közreműködésével, ingatlant vásárolnak, ingatlanuk értékesítésére megbízást adnak, stb., a továbbiakban: Érintettek), személyes adataikat, illetve az ingatlan adatait az erre a célra rendszeresített nyomtatványon adják meg önkéntesen. A nyomtatvány kitöltésével és aláírásával az Érintettek hozzájárulásukat adják a megadott adataiknak a jelen szabályzatban foglalt céloknak megfelelő kezeléséhez.</p>
+            <p>Az adatkezelés célja a Pre-Alp House Ingatlaniroda ingatlanközvetítői tevékenységének elősegítése, illetve az ezzel kapcsolatban keletkezett igények érvényesítése, követelések behajtása.</p>
+            <p>Az Pre-Alp House Ingatlaniroda által kezelt adatok megadása önkéntes az így megadásra került személyes adatot az érintett beleegyezésével kezeli. A jelen szabályzat tartalmazza mindazon információkat, amely alapján az érintett egyértelmű, közérthető és részletes tájékoztatására – az adatai kezelésével kapcsolatos minden tényről, így különösen az adatkezelés céljáról és jogalapjáról, az adatkezelésre és az adatfeldolgozásra jogosult személyéről, az adatkezelés időtartamáról, illetve arról, hogy kik ismerhetik meg az adatokat – sor kerül. A szabályzat tartalmazza ezen felül az érintett adatkezeléssel kapcsolatos jogainak és jogorvoslati lehetőségeinek ismertetését is.</p>
+            <p>Az <i>érintettek köre:</i> bárki, aki, vagy amely szervezet képviselője a Pre-Alp House Ingatlaniroda Irodával ingatlanközvetítés, vagy bérbeadás okán szerződést köt, valamint a partner kapcsolattartója. <br>
+            <i>A kezelt adatok forrása:</i> az érintett, a tulajdonos, a szerződés.<br><i>A kezelt adatok köre: (az adatkezelés céljainak, a fent felsorolt jogalapoknak és az adatkezelés időtartamának meghatározásával):</i></p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Kezelt adatok köre</th>
+                        <th>Adatkezelés célja</th>
+                        <th>Adatkezelés jogalapja</th>
+                        <th>Adatkezelés időtartama</th>
+                        <th>Mire használjuk</th>
+                        <th>Adatközlés/adattovábbítás</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Magánszemély, mint megrendelő neve a címe</td>
+                        <td>az adatkezelési folyamat céljára irányuló szerződés megkötése, és teljesítése <br>számla kiállítása</td>
+                        <td>b) szerződés teljesítése <br> c) jogi kötelezettség <br> (Számv. tv.)</td>
+                        <td><ul><li>sikertelen közvetítés esetén szerződés végét követő 365 nap,</li>
+                                <li>sikeres közvetítés esetén a szerződés a számla mellékleteként kerül megőrzésre</li><li>Számv. tv.-ben előírt ideig</li></ul></td>
+                        <td><ul><li>szerződésen szerepel</li><li>kapcsolattartás</li><li>számlán szerepeltetjük</li></ul></td>
+                        <td>nincs</td>
+                    </tr>
+                    <tr>
+                        <td>Magánszemély, mint megrendelő telefonszáma</td>
+                        <td>az adatkezelési folyamat céljára irányuló szerződés teljesítése</td>
+                        <td>b) szerződés teljesítése</td>
+                        <td><ul><li>sikertelen közvetítés esetén szerződés végét követő 365 nap,</li><li>sikeres közvetítés esetén a szerződés a számla mellékleteként kerül megőrzésre</li></ul></td>
+                        <td><ul><li>Megbízási szerződésben szerepel</li><li>Kapcsolattartás, időpont egyeztetés</li></ul></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Magánszemély, mint megrendelő e-mail címe</td>
+                        <td>az adatkezelési folyamat céljára irányuló szerződésre vonatkozó ajánlattétel</td>
+                        <td>a) érintett hozzájárulása</td>
+                        <td><ul><li>A szerződés visszaérkezését követő munkanap</li></ul></td>
+                        <td><ul><li>Hozzájárulás esetén a szerződési ajánlat egyeztetésére</li><li>Kapcsolattartás, időpont egyeztetés</li></ul></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Egyéni vállalkozó, mint megrendelő neve címe az adószáma</td>
+                        <td>az adatkezelési folyamat céljára irányuló szerződés megkötése és teljesítése <br>számla kiállítása</td>
+                        <td>b) szerződés teljesítése <br>c) jogi kötelezettség <br>(Számv. tv.)
+                         </td>
+                        <td><ul><li>sikertelen közvetítés esetén szerződés végét követő 365 nap,</li><li>sikeres közvetítés esetén a szerződés a számla mellékleteként kerül megőrzésre</li><li>Számv. tv.-ben előírt ideig</li></ul></td>
+                        <td><ul><li>Szerződésen szerepel</li><li>Kapcsolattartás</li><li>A számlán szerepeltetjük</li></ul></td>
+                        <td>nincs</td>
+                    </tr>
+                    <tr>
+                        <td>Egyéni vállalkozó, mint megrendelő   telefonszáma</td>
+                        <td>az adatkezelési folyamat céljára irányuló szerződés teljesítése</td>
+                        <td>b) szerződés teljesítése</td>
+                        <td><ul><li>sikertelen közvetítés esetén szerződés végét követő 365 nap,</li><li>sikeres közvetítés esetén a szerződés a számla mellékleteként kerül megőrzésre</li></ul></td>
+                        <td><ul><li>Megbízási szerződésben szerepel</li><li>Kapcsolattartás, időpont egyeztetés</li></ul></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Egyéni vállalkozó, mint megrendelő
+                            e-mail címe
+                            </td>
+                        <td>az adatkezelési folyamat céljára irányuló szerződésre vonatkozó ajánlattétel</td>
+                        <td>a) érintett hozzájárulása</td>
+                        <td><ul><li>A szerződés visszaérkezését követő munkanap</li></ul></td>
+                        <td><ul><li>Hozzájárulás esetén a szerződési ajánlat egyeztetésére</li><li>Kapcsolattartás, időpont egyeztetés</li></ul></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Nem egyéni vállalkozó, mint megrendelő esetén a szerződéskötésre felhatalmazott neve</td>
+                        <td>az adatkezelési folyamat céljára irányuló szerződés megkötése</td>
+                        <td>b) szerződés teljesítése</td>
+                        <td><ul><li>sikertelen közvetítés esetén szerződés végét követő 365 nap,</li><li>sikeres közvetítés esetén a szerződés a számla mellékleteként kerül megőrzésre, ami a számv. tv.-ben előírt ideig kell kezelni.</li></ul></td>
+                        <td><ul><li>Szerződésen szerepel</li></ul></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Nem egyéni vállalkozó, mint megrendelő partner kapcsolat-tartójának
+                            neve
+                            telefonszáma
+                            email címe
+                            </td>
+                        <td>az adatkezelési folyamat céljára irányuló szerződés teljesítése</td>
+                        <td>d) jogos érdek érvényesítése: gazdasági érdek a megbízási szerződésben foglalt feladatokkal kapcsolatos egyeztetetés, ügyvitel gyorsítása</td>
+                        <td><ul><li>sikertelen közvetítés esetén szerződés végét követő 365 nap,</li><li>sikeres közvetítés esetén a szerződés a számla mellékleteként kerül megőrzésre</li></ul></td>
+                        <td><ul><li>Szerződésen szerepel</li><li>Kapcsolattartás</li></ul></td>
+                        <td>nincs</td>
+                    </tr>
+                    <tr>
+                        <td>Magánszemély, mint haszonélvező
+                            neve
+                            címe
+                            telefonszáma
+                            </td>
+                        <td>az adatkezelési folyamat céljára irányuló szerződés megkötése, és teljesítése</td>
+                        <td>b) szerződés teljesítése</td>
+                        <td><ul><li>sikertelen közvetítés esetén szerződés végét követő 365 nap,</li><li>•	sikeres közvetítés esetén a szerződés a számla mellékleteként kerül megőrzésre</li></ul></td>
+                        <td><ul><li>Szerződésen szerepel</li><li>Kapcsolattartás</li></ul></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><i>Adatkezelés módja:</i> papír alapú<br>
+            <i>Automatizált döntéshozatal, profilalkotás:</i> az adatkezelés kapcsán ilyen nem történik<br>
+            <i>Adattovábbítás harmadik országba vagy nemzetközi szervezet részére:</i> nincs</br>
+            <i>Az adatszolgáltatás elmaradásának lehetséges következményei:</i> a szerződésben meghatározott szolgáltatás nyújtásának, tevékenység elvégzésének elmaradása.</p>
+        </div>
+        <div class="secondary-group">
+            <h1>5.2. Ingatlankeresés</h1>
+
+            <p>Az adatkezelési folyamat célja: Az érdeklődő igényének megfelelő ajánlattétel.</p>
+            <p>Az érintettek köre: bárki, aki, vagy amely szervezet képviselője a Pre-Alp House Ingatlanirodát ingatlankeresés miatt megkeres.</p>
+            <p>A kezelt adatok forrása: az érintett.</p>
+            <p>A kezelt adatok köre: (az adatkezelés céljainak, a fent felsorolt jogalapoknak és az adatkezelés időtartamának meghatározásával):</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Kezelt adatok köre</th>
+                        <th>Adatkezelés célja</th>
+                        <th>Adatkezelés jogalapja</th>
+                        <th>Adatkezelés időtartama</th>
+                        <th>Mire használjuk</th>
+                        <th>Adatközlés/adattovábbítás</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Érdeklődő neve, telefonszáma</td>
+                        <td>időpont egyeztetés</td>
+                        <td>időpont egyeztetés</td>
+                        <td>tárgyévet követő év 2. hete</td>
+                        <td><ul><li>Időpont egyeztetésre, és a határidő naplóba bejegyzésre</li></ul></td>
+                        <td>nincs</td>
+                    </tr>
+                    <tr>
+                        <td>Érdeklődő e-mail címe</td>
+                        <td>érdeklődő igényének pontosítása, helyszíni megtekintést megelőző tájékoztatás (fénykép, információ)</td>
+                        <td>a) érintett hozzájárulása</td>
+                        <td>a keresési folyamat lezárását követő munkanap</td>
+                        <td><ul><li>fotó és egyéb dokumentum küldés, az előzetes igény felmérésre</li></ul></td>
+                        <td>nincs</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>Adatkezelés módja: papír alapú.</p>
+            <p>Automatizált döntéshozatal, profilalkotás: az adatkezelés kapcsán ilyen nem történik.</p>
+            <p>Adattovábbítás harmadik országba vagy nemzetközi szervezet részére: nincs.</p>
+            <p>Az adatszolgáltatás elmaradásának lehetséges következményei: az ajánlatok ismertetése, információk megküldésének meghiúsulása.</p>
+        </div>
+
+        <div class="secondary-group">
+            <h1>5.3. Ingatlanbecslés</h1>
+
+            <p>Az adatkezelési folyamat célja: A szerződésben megjelölt ingatlan ingatlanbecslése.</p>
+            <p>Az érintettek köre: bárki, aki, vagy amely szervezet képviselője a Pre-Alp House Ingatlanirodával ingatlanbecslés okán szerződést köt, valamint a partner kapcsolattartója.</p>
+            <p>A kezelt adatok forrása: az érintett, a szerződés.</p>
+            <p>A kezelt adatok köre: (az adatkezelés céljainak, a fent felsorolt jogalapoknak és az adatkezelés időtartamának meghatározásával):</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Kezelt adatok köre</th>
+                        <th>Adatkezelés célja</th>
+                        <th>Adatkezelés jogalapja</th>
+                        <th>Adatkezelés időtartama</th>
+                        <th>Mire használjuk</th>
+                        <th>Adatközlés/adattovábbítás</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Magánszemély, mint megbízó
+                            neve
+                            a címe
+                            </td>
+                        <td>az adatkezelési folyamat céljára irányuló szerződés megkötése, és teljesítése <br>számla kiállítása</td>
+                        <td>b) szerződés teljesítése <br>c) jogi kötelezettség
+                            (Számv. tv.)</td>
+                        <td><ul><li>a szerződés a számla mellékleteként kerül megőrzésre</li><li>Számv. tv.-ben előírt ideig</li></ul></td>
+                        <td><ul><li>Szerződésen szerepel</li><li>Kapcsolattartás</li><li>A számlán szerepeltetjük</li></ul></td>
+                        <td>nincs</td>
+                    </tr>
+                    <tr>
+                        <td>Magánszemély, mint megbízó
+                            telefonszáma
+                            </td>
+                        <td>az adatkezelési folyamat céljára irányuló szerződés teljesítése</td>
+                        <td>b) szerződés teljesítése</td>
+                        <td><ul><li>a szerződés a számla mellékleteként kerül megőrzésre</li></ul></td>
+                        <td><ul><li>Szerződésben szerepel</li><li>Kapcsolattartás, időpont egyeztetés</li></ul></td>
+                        <td>nincs</td>
+                    </tr>
+                    <tr>
+                        <td>Egyéni vállalkozó, mint megbízó
+                            neve
+                            címe
+                            az adószáma
+                            </td>
+                        <td>az adatkezelési folyamat céljára irányuló szerződés megkötése és teljesítése <br> számla kiállítása</td>
+                        <td>b) szerződés teljesítése <br>c) jogi kötelezettség
+                            (Számv. tv.)
+                         </td>
+                        <td><ul><li>a szerződés a számla mellékleteként kerül megőrzésre</li><li>a szerződés a számla mellékleteként kerül megőrzésre</li></ul></td>
+                        <td><ul><li>Szerződésen szerepel</li><li>Kapcsolattartás</li><li>A számlán szerepeltetjük</li></ul></td>
+                        <td>nincs</td>
+                    </tr>
+                    <tr>
+                        <td>Egyéni vállalkozó, mint megbízó   telefonszáma</td>
+                        <td>az adatkezelési folyamat céljára irányuló szerződés teljesítése</td>
+                        <td>b) szerződés teljesítése</td>
+                        <td><ul><li>a szerződés a számla mellékleteként kerül megőrzésre</li></ul></td>
+                        <td><ul><li>Szerződésben szerepel</li><li>Kapcsolattartás, időpont egyeztetés</li></ul></td>
+                        <td>nincs</td>
+                    </tr>
+                    <tr>
+                        <td>Nem egyéni vállalkozó, mint megbízó esetén a szerződés-kötésre felhatalmazott   neve</td>
+                        <td>az adatkezelési folyamat céljára irányuló szerződés megkötése</td>
+                        <td>b) szerződés teljesítése</td>
+                        <td><ul><li>a szerződés a számla mellékleteként kerül megőrzésre</li></ul></td>
+                        <td><ul><li>Szerződésen szerepel</li></ul></td>
+                        <td>nincs</td>
+                    </tr>
+                    <tr>
+                        <td>Nem egyéni vállalkozó, mint megbízó partner kapcsolat-tartójának
+                            neve;
+                            telefonszáma
+                            </td>
+                        <td>az adatkezelési folyamat céljára irányuló szerződés teljesítése</td>
+                        <td>d) jogos érdek érvényesítése: gazdasági érdek a megbízási szerződésben foglalt feladatokkal kapcsolatos egyeztetetés, ügyvitel gyorsítása</td>
+                        <td><ul><li>a szerződés a számla mellékleteként kerül megőrzésre</li></ul></td>
+                        <td><ul><li>Szerződésben szerepel</li><li>Kapcsolattartás, időpont egyeztetés</li></ul></td>
+                        <td>nincs</td>
+                    </tr>
+                    <tr>
+                        <td>Magánszemély, vagy egyéni vállalkozó, mint tulajdonos
+                            neve
+                            </td>
+                        <td><ul><li>Tulajdonilap lehívására</li><li>Értékmeghatározó dokumentum elkészítése</li></ul></td>
+                        <td>d) jogos érdek érvényesítése: gazdasági érdek a megbízási szerződésben foglalt feladatok elvégzése</td>
+                        <td><ul><li>A Ptk. kellék-szavatosságra vonatkozó szabályai szerint: 2 év.</li></ul></td>
+                        <td><ul><li>Ez alapján kerül lehívásra a tulajdoni lap</li><li>Értékmeghatározó dokumentumra rávezetésre kerül</li></ul></td>
+                        <td>nincs</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>Adatkezelés módja: papír alapú.</p>
+            <p>Automatizált döntéshozatal, profilalkotás: az adatkezelés kapcsán ilyen nem történik.</p>
+            <p>Adattovábbítás harmadik országba vagy nemzetközi szervezet részére: nincs.</p>
+            <p>Az adatszolgáltatás elmaradásának lehetséges következményei: a szerződésben meghatározott szolgáltatás nyújtásának, tevékenység elvégzésének elmaradása.</p>
+        </div>
+
+        <div class="secondary-group">
+            <h1>5.4. szolgáltatás igénybevétele</h1>
+
+            <p>Az adatkezelési folyamat célja: A Pre-Alp House Ingatlaniroda részére megrendelt szolgáltatáshoz, egyéb beszerzésekhez kapcsolódó adatkezelés.</p>
+            <p>Az érintettek köre: Bárki, aki, vagy valamely szervezet képviselőjeként a Pre-Alp House Ingatlanirodával, mint szolgáltatást nyújtó szerződést köt, vagy annak a kapcsolattartója.</p>
+            <p>Az érintettek köre: Bárki, aki, vagy valamely szervezet képviselőjeként a Pre-Alp House Ingatlanirodával, mint szolgáltatást nyújtó szerződést köt, vagy annak a kapcsolattartója.</p>
+            <p>A kezelt adatok köre: (az adatkezelés céljainak, a fent felsorolt jogalapoknak és az adatkezelés időtartamának meghatározásával):</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Kezelt adatok köre</th>
+                        <th>Adatkezelés célja</th>
+                        <th>Adatkezelés jogalapja</th>
+                        <th>Adatkezelés időtartama</th>
+                        <th>Mire használjuk</th>
+                        <th>Adatközlés/adattovábbítás</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Egyéni vállalkozó esetében a <br><ul><li>neve</li><li>címe</li><li>adószáma</li><li>bankszámla-száma</li></ul></td>
+                        <td>az adatkezelési folyamat céljára irányuló szerződés megkötése <br>számla kiállítása</td>
+                        <td>b) szerződés teljesítése <br> c) jogi kötelezettség
+                            (Számv. tv.)
+                         </td>
+                        <td>a számla melléklete, így vele együtt kezelve <br>Számv. tv.-ben előírt ideig</td>
+                        <td><ul><li>Szerződésen szerepel</li><li>Számlán szerepeltetjük</li></ul></td>
+                        <td>nincs</td>
+                    </tr>
+                    <tr>
+                        <td>Nem egyéni vállalkozó esetében a megrendelőnél szerződéskötésre felhatalmazott   neve</td>
+                        <td>az adatkezelési folyamat céljára irányuló szerződés megkötése <br>számla kiállítása</td>
+                        <td>b) szerződés teljesítése <br>c) jogi kötelezettség
+                            (Számv. tv.)
+                         </td>
+                        <td>a számla melléklete, így vele együtt kezelve <br>Számv. tv.-ben előírt ideig</td>
+                        <td><ul><li>Szerződésen szerepel</li></ul></td>
+                        <td>nincs</td>
+                    </tr>
+                    <tr>
+                        <td>Partner kapcsolat-tartójának neve; telefonszáma; email címe</td>
+                        <td>az adatkezelési folyamat céljára irányuló szerződés teljesítése</td>
+                        <td>d) jogos érdek érvényesítése: gazdasági érdek a megbízási szerződésben foglalt felada-tokkal kapcsola-tos egyeztetetés, ügyvitel gyorsítása</td>
+                        <td>a számla melléklete, így vele együtt kezelve</td>
+                        <td><ul><li>Szerződésen szerepel</li><li>Kapcsolattartásra használjuk</li></ul></td>
+                        <td>nincs</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>Adatkezelés módja: papír alapú.</p>
+            <p>Automatizált döntéshozatal, profilalkotás: az adatkezelés kapcsán ilyen nem történik.</p>
+            <p>Adattovábbítás harmadik országba vagy nemzetközi szervezet részére: nincs.</p>
+            <p>Az adatszolgáltatás elmaradásának lehetséges következményei: a vállalkozás részére igénybe veendő szolgáltatások meghiúsulása, egyéb beszerzések sikertelensége.</p>
+        </div>
+    </div>
+    <div class="main-group">
+        <h1>6. A honlap adatkezelései</h1>
+
+        <div class="secondary-group">
+            <h1>6.1. Az adatszolgáltatás elmaradásának lehetséges következményei: a vállalkozás részére igénybe veendő szolgáltatások meghiúsulása, egyéb beszerzések sikertelensége.</h1>
+
+            <p>A <a href="https://prealphouse.hu">https://prealphouse.hu</a> weblap google analytics kóddal van ellátva, ezért meglátogatásakor a webszerver automatikusan naplózza a felhasználó tevékenységét.</p>
+            <p>Az adatkezelés célja: a honlap látogatása során a szolgáltatások működésének ellenőrzése, a visszaélések megakadályozása.</p>
+            <p>Az adatkezelés jogalapja: a GDPR 6. cikk (1) bekezdésének f) pontja. Cégünknek jogos érdeke fűződik a weboldal biztonságos működéséhez.</p>
+            <p>A kezelt személyes adatok típusa: azonosítószám, dátum, időpont, a meglátogatott oldal címe.</p>
+            <p>Az adatkezelés időtartama: 90 nap.</p>
+            <p>Cégünk a naplóállományok elemzése során felmerült adatokat más információval nem kapcsolja össze, a felhasználó személyének, vagyis Önnek az azonosítására nem törekszik.</p>
+            <p><i>Külső szolgáltatók naplózással kapcsolatos adatkezelése:</i></p>
+            <p>A portál html kódja a cégünktől független, külső szerverről érkező és külső szerverre mutató hivatkozásokat tartalmaz. A külső szolgáltató szervere közvetlenül a felhasználó, vagyis az Ön számítógépével áll kapcsolatban. Felhívjuk a figyelmét, hogy e hivatkozások szolgáltatói az ő szerverükre történő közvetlen kapcsolódás, a felhasználó, vagyis az Ön böngészőjével való közvetlen kommunikáció során felhasználói adatokat (pl. IP cím, böngésző, operációs rendszer adatai, egérmutató mozgása, meglátogatott oldal címe és a látogatás időpontja) képesek gyűjteni.
+                A meglátogatott oldalak címe, valamint a dátum, időpont adatok önmagukban az érintett, vagyis az Ön azonosítására nem alkalmasak, azonban egyéb (pl. regisztráció során megadott) adatokkal összekapcsolva alkalmasak lehetnek arra, hogy segítségükkel a felhasználóra vonatkozó következtetéseket lehessen levonni.
+                </p>
+            <p><i>Egyéb információk:</i></p>
+            <p>Az IP cím olyan számsorozat, mellyel az internetre fellépő felhasználók, így az Ön számítógépei, mobil eszközei egyértelműen beazonosíthatók. Az IP címek segítségével akár földrajzilag is lokalizálható az adott számítógépet használó látogató, így Ön is.</p>
+        </div>
+
+        <div class="secondary-group">
+            <h1>6.2. A HTTPS://PREALPHOUSE.HU HONLAP COOKIE KEZELÉSE</h1>
+
+            <p>A <a href="https://prealphouse.hu">https://prealphouse.hu</a> weblap sütiket használ. Az adatkezelő szolgáltatója a testreszabott kiszolgálás érdekében a felhasználó, vagyis az Ön számítógépén kis adatcsomagot, ún. sütit (cookie) helyez el, amit a későbbi látogatás során visszaolvas. Ha az Ön böngészője visszaküld egy korábban elmentett sütit, a sütit kezelő szolgáltatónak lehetősége van összekapcsolni az Ön aktuális látogatását a korábbiakkal, de kizárólag a saját tartalma tekintetében. </p>
+            <p>Az adatkezelés célja: Ön, mint felhasználó azonosítása, nyomon követése, a felhasználók egymástól való megkülönböztetése, az aktuális munkamenetük azonosítása, az annak során megadott adatok tárolása, az adatvesztés megakadályozása, webanalitikai mérések, és személyre szabott kiszolgálás.</p>
+            <p>Az adatkezelés jogalapja: az érintett hozzájárulása.</p>
+            <p>A kezelt adatok köre: azonosítószám, dátum, időpont, valamint az előzőleg meglátogatott oldal.</p>
+            <p>Az adatkezelés időtartama: 45 nap.</p>
+            <p>Ön, mint felhasználó a sütit képes törölni saját számítógépéről, illetve letilthatja böngészőjében a sütik alkalmazását. A sütik kezelésére általában a böngészők Eszközök/Beállítások menüjében az Adatvédelem/Előzmények/Egyéni beállítások menü alatt, cookie, süti vagy nyomkövetés megnevezéssel van lehetőség.</p>
+            <p>Az adatszolgáltatás elmaradásának lehetséges következményei: a honlap szolgáltatásainak nem teljes körű igénybevehetősége, analitikai mérések pontatlansága.</p>
+        </div>
+    </div>
+
+    <div class="main-group">
+        <h1>7. Kapcsolatfelvétel</h1>
+
+        <p><b>A PRE-ALP HOUSE INGATLANIRODA ÜGYFÉLLEVELEZÉSE</b></p>
+        <p>Amennyiben megkeresné a Pre-Alp House Ingatlaniroda Irodát, a jelen tájékoztatóban megadott, illetve a honlapon elhelyezett elérhetőségeken léphet kapcsolatba velünk.</p>
+        <p>A Pre-Alp House Ingatlaniroda minden hozzá beérkezett e-mailt a küldő nevével, e-mail címével, a dátum, időpont adatokkal és más, az üzenetben megadott egyéb személyes adatokkal együtt az adatközléstől számított legfeljebb öt év elteltével töröl.</p>
+    </div>
+
+    <div class="main-group">
+        <h1>8. EGYÉB ADATKEZELÉSEK</h1>
+
+        <p>E tájékoztatóban fel nem sorolt adatkezelésekről az adat felvételekor adunk tájékoztatást.</p>
+        <p>Tájékoztatjuk Önt, hogy a bíróság, az ügyészség, a nyomozó hatóság, a szabálysértési hatóság, a közigazgatási hatóság, a Nemzeti Adatvédelmi és Információszabadság Hatóság, illetőleg vonatkozó jogszabály felhatalmazása alapján más szervek tájékoztatás adása, adatok közlése, átadása, illetőleg iratok rendelkezésre bocsátása érdekében megkereshetnek bennünket, mint adatkezelőt.</p>
+        <p>A Pre-Alp House Ingatlaniroda a hatóságok részére – amennyiben a hatóság a pontos célt és az adatok körét megjelölte – személyes adatot csak annyit és olyan mértékben ad ki, amely a megkeresés céljának megvalósításához elengedhetetlenül szükséges.</p>
+    </div>
+
+    <div class="main-group">
+        <h1>9. A SZEMÉLYES ADATOK TÁROLÁSÁNAK MÓDJA, AZ ADATKEZELÉS BIZTONSÁGA</h1>
+
+        <p>A Pre-Alp House Ingatlaniroda számítástechnikai rendszerei és más adatmegőrzési helyei a székhelyén találhatók meg. A Pre-Alp House Ingatlaniroda a személyes adatok kezeléséhez a szolgáltatás nyújtása során alkalmazott informatikai eszközöket úgy választja meg és üzemelteti, hogy a kezelt adat:</p>
+        <p>a) az arra feljogosítottak számára hozzáférhető (rendelkezésre állás); <br>
+            b) hitelessége és hitelesítése biztosított (adatkezelés hitelessége); <br>
+            c) változatlansága igazolható (adatintegritás); <br>
+            d) a jogosulatlan hozzáférés ellen védett (adat bizalmassága) legyen. <br>
+            </p>
+        <p>A Pre-Alp House Ingatlaniroda az adatokat megfelelő intézkedésekkel védi, különösen a jogosulatlan hozzáférés, megváltoztatás, továbbítás, nyilvánosságra hozatal, törlés vagy megsemmisítés, valamint a véletlen megsemmisülés, sérülés, továbbá az alkalmazott technika megváltozásából fakadó hozzáférhetetlenné válás ellen.</p>
+        <p>A Pre-Alp House Ingatlaniroda a különböző nyilvántartásaiban elektronikusan kezelt adatállományok védelme érdekében megfelelő technikai megoldással biztosítja, hogy a tárolt adatok – kivéve, ha azt törvény lehetővé teszi – közvetlenül ne legyenek összekapcsolhatók és az érintetthez rendelhetők.</p>
+        <p>A Pre-Alp House Ingatlaniroda az adatkezelés során biztosítja:</p>
+        <p>a) a titkosságot: megvédi az információt, hogy csak az férhessen hozzá, aki erre jogosult; <br>
+            b) a sértetlenséget: megvédi az információnak és a feldolgozás módszerének a pontosságát és teljességét; <br>
+            c) a rendelkezésre állást: gondoskodik arról, hogy amikor a jogosult használónak szüksége van rá, valóban hozzá tudjon férni a kívánt információhoz, és rendelkezésre álljanak az ezzel kapcsolatos eszközök.
+            </p>
+        <p>A Pre-Alp House Ingatlaniroda a papíralapra felvett anyagokat az előírt tárolási időig zárt szekrényben tárolja, és a meghatározott tárolási időt követően megsemmisíti, amiről feljegyzést készít.</p>
+        <p>A Pre-Alp House Ingatlaniroda gondoskodik a személyes adatok biztonságáról, azokat megfelelő gondossággal, biztonságosan tárolja, azokat illetéktelen részére nem teszi elérhetővé, továbbá a technika mindenkori fejlettségére tekintettel megteszi mindazokat a műszaki és informatikai, intézkedéseket, valamint kialakítja azokat a szervezeti, szervezési és eljárási szabályokat, amelyek az adatkezelés biztonságának védelmének megvalósulásukhoz szükségesek, és amelyek az adatkezeléssel kapcsolatban jelentkező kockázatoknak megfelelő védelmi szintet nyújtanak.</p>
+        <p>A Pre-Alp House Ingatlaniroda valamint a partnereinek informatikai rendszere és hálózata egyaránt védett a számítógéppel támogatott csalás, kémkedés, szabotázs, vandalizmus, tűz és árvíz, továbbá a számítógépes vírusok, a számítógépes betörések és a szolgálatmegtagadásra vezető támadások ellen. Az üzemeltető a biztonságról szerverszintű és alkalmazásszintű védelmi eljárásokkal gondoskodik.</p>
+    </div>
+
+    <div class="main-group">
+        <h1>10. AZ ADATKEZELŐ ADATAI, ELÉRHETŐSÉGE</h1>
+
+        <p>Név: Pre-Alp House Ingatlaniroda Iroda</p>
+        <p>Önálló képviselője: Szabóné dr. Pribek Erzsébet egyéni vállalkozó</p>
+        <p>Székhely: 9743 Söpte, József Attila u. 16A</p>
+        <p>Hatósági nyilvántartásba vétel száma: 53004462</p>
+        <p>Adószám: 69314100-1-38</p>
+        <p>Telefonszám: 06-202777424</p>
+        <p>E-mail: prealphouse@gmail.com</p>
+    </div>
+
+    <div class="main-group">
+        <h1>11. ÉRINTETTEK JOGAI, JOGORVOSLATI LEHETŐSÉGEK</h1>
+
+        <p>Az érintett, vagyis Ön kérheti a személyes adatainak helyesbítését, illetve – a jog adta lehetőségek keretei között – a törlését és „elfeledtetését”, a visszavonását, a korlátozását, továbbá élhet a tiltakozási jogával.</p>
+        <p>Az érintett, vagyis Ön kérheti a személyes adatainak helyesbítését, illetve – a jog adta lehetőségek keretei között – a törlését és „elfeledtetését”, a visszavonását, a korlátozását, továbbá élhet a tiltakozási jogával.</p>
+        <p>Ön, a személyes adatai kezelésével kapcsolatos kéréseit írásban, a fent közölt elérhetőségeinken, illetve az adat felvételénél jelzett módon részünkre bármikor megküldheti, benyújthatja.</p>
+        <p>Amennyiben kérését Ön nem személyesen, vagy meghatalmazottja útján juttatja el hozzánk, úgy – a jogi kötelezettségünk adta lehetőségek keretei között – csak abban az esetben teszünk eleget kérésének, ha Ön egyértelműen beazonosítható, illetve, ha az e-mailben küldött tájékoztatáskérést Ön a nálunk kezelt e-mail címéről küldi.</p>
+        <p>Amennyiben az adataival kapcsolatban jogsértést tapasztal akkor élhet a bírósághoz fordulás és/vagy, hatósághoz fordulás jogával.</p>
+        <p><i>Az érintett hozzáféréshez való joga:</i></p>
+        <p>Ön, mint érintett jogosult arra, hogy az adatkezelőtől tájékoztatást kapjon arról, hogy személyes adatainak kezelése folyamatban van-e. </p>
+        <p>Amennyiben ilyen adatkezelés történik, jogosult arra, hogy a személyes adataihoz hozzáférést és a következőkről információt kapjon:</p>
+
+        <div class="secondary-group">
+            <ul>
+                <li>melyek az adatkezelés céljai;</li>
+                <li>melyek az érintett személyes adatok kategóriái;</li>
+                <li>kik azon címzettek, akikkel, a személyes adatokat közölték vagy közölni fogják, ideértve különösen a harmadik országbeli címzetteket, illetve a nemzetközi szervezeteket;</li>
+                <li>mennyi a személyes adatok tárolásának tervezett időtartama;</li>
+                <li>a helyesbítés, a törlés vagy az adatkezelés korlátozásának és a tiltakozás joga;</li>
+                <li>a felügyeleti hatósághoz címzett panasz benyújtásának joga;</li>
+                <li>az adatforrásokra vonatkozó információ;</li>
+                <li>történik-e automatizált döntéshozatal, vagy profilalkotást, amennyiben igen akkor mi az abban alkalmazott logika, az ilyen adatkezelés milyen jelentőséggel bír, és Önre nézve milyen várható következményekkel jár.</li>
+            </ul>
+        </div>
+
+        <p>Személyes adatok harmadik országba vagy nemzetközi szervezet részére történő továbbítása esetén Ön jogosult arra, hogy tájékoztatást kapjon a továbbításra vonatkozó garanciákról.</p>
+        <p>Kérésére – hacsak jogszabály másként nem rendelkezik, – a nálunk kezelt adatainak másolatát az Ön rendelkezésére bocsátjuk. További másolatokért az adminisztratív költségeken alapuló, észszerű mértékű díjat számítunk fel. A kért információkat a Pre-Alp House Ingatlaniroda elektronikus formában szolgáltatja.</p>
+        <p>Kérésére – hacsak jogszabály másként nem rendelkezik, – a nálunk kezelt adatainak másolatát az Ön rendelkezésére bocsátjuk. További másolatokért az adminisztratív költségeken alapuló, észszerű mértékű díjat számítunk fel. A kért információkat a Pre-Alp House Ingatlaniroda elektronikus formában szolgáltatja.</p>
+        <p><i>Helyesbítés joga:</i></p>
+        <p>Ön kérheti a Pre-Alp House Ingatlaniroda által kezelt, Önre vonatkozó pontatlan személyes adatok helyesbítését és a hiányos adatok kiegészítését.</p>
+        <p><i>Törléshez, „elfeledtetéshez” való jog:</i></p>
+        <p>Ön az alábbi indokok valamelyikének fennállása esetén jogosult arra, hogy kérésére a Pre-Alp House Ingatlaniroda indokolatlan késedelem nélkül törölje az Önre vonatkozó személyes adatokat:</p>
+        <div class="secondary-group">
+            <ul>
+                <li>a személyes adataira már nincs szükség abból a célból, amelyből azokat gyűjtöttük;</li>
+                <li>Ön, mint érintett visszavonja a hozzájárulását, és az adatkezelésnek nincs más jogalapja;</li>
+                <li>Ön tiltakozik az adatkezelés ellen, és nincs elsőbbséget élvező jogszerű ok az adatkezelésre. Jelen esetben nem áll fenn ilyen jog;</li>
+                <li>a személyes adatait jogellenesen kezeltük;</li>
+                <li>a személyes adatait ránk, mint adatkezelőre alkalmazandó uniós vagy tagállami jogban előírt jogi kötelezettség teljesítéséhez törölni kell.</li>
+            </ul>
+        </div>
+
+        <p>Amennyiben az adatkezelő nyilvánosságra hozta az Ön a személyes adatait, és az előző bekezdés értelmében azt törölni köteles, akkor az elérhető technológia és a megvalósítás költségeinek figyelembevételével köteles megtenni az észszerűen elvárható lépéseket – ideértve technikai intézkedéseket – annak érdekében, hogy tájékoztassa az általa az Ön nyilvánosságra hozott adatait kezelő más adatkezelőket, hogy Ön kérelmezte a szóban forgó személyes adataira mutató linkek vagy e személyes adatok másolatának, illetve másodpéldányának törlését.</p>
+        <p>Az adatok törlése, „elfeledtetése” nem kezdeményezhető, amennyiben az adatkezelésre szükség van:</p>
+        <div class="secondary-group">
+            <ul>
+                <li>a véleménynyilvánítás szabadságának biztosításához és a tájékozódáshoz való jog gyakorlása céljából;</li>
+                <li>a személyes adatok kezelését előíró, ránk, mint adatkezelőre alkalmazandó uniós vagy tagállami jog szerinti kötelezettségünk teljesítése érdekében;</li>
+                <li>közérdekből vagy ránk, mint adatkezelőre ruházott közhatalmi jogszabály által előírt feladat végrehajtása céljából;</li>
+                <li>a népegészségügy területét érintő esetekben;</li>
+                <li>archiválási, tudományos és történelmi kutatási célból;</li>
+                <li>statisztikai célból;</li>
+                <li>közérdek teljesítése érdekében; vagy</li>
+                <li>jogi igények előterjesztéséhez, érvényesítéséhez, illetve védelméhez.</li>
+            </ul>
+        </div>
+
+        <p><i>Az adatkezelés korlátozásához való jog:</i></p>
+        <p>Az adatkezelés korlátozása nem más, mint az Adatkezelés (lásd 3.pont) felfüggesztése.</p>
+        <p>Az érintett kérésére a Pre-Alp House Ingatlaniroda korlátozza az adatkezelést, ha az alábbi feltételek valamelyike teljesül:</p>
+        <div class="secondary-group">
+            <ul>
+                <li>Ön vitatja a személyes adatai pontosságát. Ez esetben a korlátozás arra az időtartamra vonatkozik, amely lehetővé teszi, a személyes adatok pontosságának ellenőrzését;</li>
+                <li>az adatkezelés jogellenes, de Ön ellenzi az adatai törlését és kéri azok felhasználásának korlátozását;</li>
+                <li>Ön tiltakozott az adatkezelés ellen. Ez esetben a korlátozás arra az időtartamra vonatkozik, amíg megállapításra nem kerül, hogy a Pre-Alp House Ingatlaniroda jogos indokai elsőbbséget élveznek-e az Ön jogos indokaival szemben.</li>
+            </ul>
+        </div>
+
+        <p>Ha az adatkezelés korlátozás alá esik, a személyes adatokat a tárolás kivételével csak</p>
+        <div class="secondary-group">
+            <ul>
+                <li>az Ön, mint érintett hozzájárulásával;</li>
+                <li>jogi igények előterjesztéséhez, érvényesítéséhez vagy védelméhez;</li>
+                <li>más természetes vagy jogi személy jogainak védelme érdekében; vagy</li>
+                <li>az Unió, illetve valamely tagállam fontos közérdekéből lehet kezelni.</li>
+            </ul>
+        </div>
+
+        <p>A Pre-Alp House Ingatlaniroda az adatkezelés korlátozásának feloldásáról Önt előzetesen tájékoztatja.</p>
+        <p><i>Adathordozáshoz való jog:</i></p>
+        <p>Ön jogosult – hacsak valamely jogszabály másként nem rendelkezik – arra, hogy az Önre vonatkozó, Ön által részünkre rendelkezésére bocsátott személyes adatokat elektronikus formátumban megkapja, és ezeket az adatokat egy másik adatkezelőnek továbbítsa.</p>
+        <p><i>Tiltakozás joga:</i></p>
+        <p>Ön jogosult arra, hogy bármikor tiltakozzon személyes adatainak</p>
+        <div class="secondary-group">
+            <ul>
+                <li>közérdekű vagy ránk, mint adatkezelőre ruházott közhatalmi jog végrehajtásához szükséges adatkezelés ellen;</li>
+                <li>az adatkezelő vagy egy harmadik fél jogos érdekeinek érvényesítéséhez szükséges kezelése ellen.</li>
+            </ul>
+        </div>
+
+        <p>Tiltakozás esetén a személyes adatokat nem kezelhetjük tovább, kivéve, ha az olyan jogszabályok alapján történik, amelyek elsőbbséget élveznek az Ön érdekeivel, jogaival szemben. Jelen esetben nem áll fenn ilyen jog.</p>
+        <p><i>Automatizált döntéshozatal egyedi ügyekben, beleértve a profilalkotást:</i></p>
+        <p>A Pre-Alp House Ingatlaniroda a tevékenységének végzése során automatizált döntéshozatali és profilalkotási módszert nem használ.</p>
+        <p><i>Visszavonás joga:</i></p>
+        <p>Ön, mint érintett jogosult arra, hogy hozzájárulását bármikor visszavonja. A hozzájárulás visszavonása csak a hozzájáruláson alapuló adatkezelés visszavonást követő adatkezelést tiltja, kivéve, ha az olyan jogszabályok alapján történik, amelyek elsőbbséget élveznek az Ön érdekeivel, jogaival szemben. Jelen esetben nem áll fenn ilyen jog.</p>
+        <p><i>Eljárási szabályok:</i></p>
+        <p>A Pre-Alp House Ingatlaniroda indokolatlan késedelem nélkül, legkésőbb a kérelem beérkezésétől számított egy hónapon belül tájékoztatja Önt a meghozott intézkedésekről. Szükség esetén, – figyelembe véve a kérelem összetettségét és azok számát – ez a határidő további két hónappal meghosszabbítható. A határidő meghosszabbításáról a Pre-Alp House Ingatlaniroda a késedelem okainak megjelölésével a kérelem kézhezvételétől számított egy hónapon belül tájékoztatja Önt. Ha Ön azt másként nem kéri, a tájékoztatás elektronikus úton kerül kiadásra.</p>
+        <p>Amennyiben a Pre-Alp House Ingatlaniroda késedelem nélkül, de legkésőbb a kérelem beérkezésétől számított egy hónapon belül nem tesz intézkedéseket az Ön kérelmére vonatkozóan, akkor tájékoztatnia kell Önt az intézkedés elmaradásának okairól, valamint arról, hogy Ön panaszt nyújthat be valamely felügyeleti hatósághoz, és élhet bírósági jogorvoslati jogával.</p>
+        <p>A Pre-Alp House Ingatlaniroda a kért információkat és tájékoztatást díjmentesen biztosítja. Amennyiben az Ön kérelme egyértelműen megalapozatlan, ismétlődő vagy túlzó, az adatkezelő, figyelemmel a kért információ biztosításával járó adminisztratív költségekre, észszerű díjat számolhat fel, vagy megtagadhatja a kérelem alapján történő intézkedést.</p>
+        <p>A Pre-Alp House Ingatlaniroda az Önnek küldött tájékoztatójában jogi kötelezettségre, jogszabályi engedélyre, jogi korlátozásra vagy bárminemű jogkövetkezményre úgy hivatkozhat, hogy a hivatkozott jogszabály paragrafusát és bekezdését, valamint a szakasz idézését is leírja a tájékoztatójába.</p>
+        <p>A Pre-Alp House Ingatlaniroda minden olyan címzettet tájékoztat az általa végzett helyesbítésről, törlésről vagy adatkezelés-korlátozásról, akinek a személyes adatot továbbította; kivéve, ha ez lehetetlennek bizonyul, vagy aránytalanul nagy erőfeszítést igényel. Önt, a kérésére ezen címzettekről is tájékoztatjuk.</p>
+        <p>Az információk elektronikus formátumban kerülnek kiadásra, kivéve, ha Ön ezt másként kéri.</p>
+        <p><i>Kártérítés és sérelemdíj:</i></p>
+        <p>Minden olyan személy, aki az adatvédelmi rendelet megsértésének eredményeként vagyoni vagy nem vagyoni kárt szenvedett, az adatkezelőtől vagy az adatfeldolgozótól kártérítésre jogosult, sérelemdíjat követelhet. Az adatfeldolgozó csak abban az esetben tartozik felelősséggel az adatkezelés által okozott károkért, ha nem tartotta be a jogszabályban meghatározott, kifejezetten az adatfeldolgozókat terhelő kötelezettségeket, vagy ha az adatkezelő jogszerű utasításait figyelmen kívül hagyta vagy azokkal ellentétesen járt el.</p>
+        <p>Minden egyes adatkezelő vagy adatfeldolgozó közös felelősséggel tartozik a teljes kárért.</p>
+        <p>Az adatkezelő, illetve az adatfeldolgozó is mentesül a felelősség alól, amennyiben bizonyítani tudja, hogy a kárt előidéző eseményért őt nem terheli felelősség.</p>
+        <p><i>Bírósághoz fordulás joga:</i></p>
+        <p>Ön, mint érintett a jogainak megsértése esetén az Ön lakóhelye, vagy tartózkodási helye szerinti illetékes bírósághoz ( <a href="https://birosag.hu/">https://birosag.hu/</a> ) fordulhat.</p>
+        <p>A bíróság az ügyben soron kívül jár el.</p>
+        <p><i>Adatvédelmi hatósági eljárás:</i></p>
+        <p>Panasszal a Nemzeti Adatvédelmi és Információszabadság Hatóságnál lehet élni:</p>
+        <p>Név: Nemzeti Adatvédelmi és Információszabadság Hatóság</p>
+        <p>Székhely: 1125 Budapest, Szilágyi Erzsébet fasor 22/C.</p>
+        <p>Levelezési cím: 1530 Budapest, Pf.: 5.</p>
+        <p>Telefon: 06 1 391 1400</p>
+        <p>Fax: 06 1 391 1410</p>
+        <p>E-mail: <a href="mailto:ugyfelszolgalat@naih.hu">ugyfelszolgalat@naih.hu</a></p>
+        <p>Honlap: <a href="http://naih.hu" target="blank">naih.hu</a></p>
+    </div>
+</section>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags( 'homepagejs' ) }}
+    {{ encore_entry_script_tags( 'consent' ) }}
+{% endblock %}

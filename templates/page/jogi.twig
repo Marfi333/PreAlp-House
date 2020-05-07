@@ -1,0 +1,35 @@
+{% extends "./components/page-base.twig" %}
+
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags( 'documentcss' ) }}
+{% endblock %}
+
+{% block body %}
+<section class="content">
+    <h1 class="title title-smaller">Jogi nyilatkozat</h1>
+
+    <div class="main-group">
+        <h1>1. Bevezetés</h1>
+
+        <p>A <b>www.prealphouse.hu</b> (a továbbiakban: Weboldal) és tartalmának szerzői joga <b>Pre-Alp House Ingatlanirodát</b> illeti meg, kivéve abban az esetben, ha a konkrét dokumentumban más forrás van feltüntetve, illetve a szerzői joggal kapcsolatban egyéb közlés történik. Ebben az esetben annak megfelelően kell eljárni.</p>
+    </div>
+
+    <div class="main-group">
+        <h1>2. Linkek elhelyezése</h1>
+
+        <p>A Weboldal szerkesztősége azon kezdeményezésnek, hogy a Weboldal egyéb oldalakon rámutató linket helyeznek el. Ilyen esetben nem kell engedély, elég, ha a szerkesztőséget értesítik (A méltatlan,etikátlan, üzletszabályunkkal ellentétes  környezetbe helyezett kapcsolódás ellen kifogást emelünk, és annak megszüntetését kezdeményezzük!)</p>
+    </div>
+
+    <div class="main-group">
+        <h1>3. Tartalom felhasználása</h1>
+
+        <p>A Weboldalon található minden képi és szöveges tartalom, illetve azok elrendezése szerzői jog védjegyoltalom alatt állnak. Azok a személyes használatot meghaladó mértékben bármilyen formában történő felhasználása kizárólag és kifejezetten erre vonatkozó írásos engedéllyel lehetséges.</p>
+    </div>
+</section>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags( 'homepagejs' ) }}
+    {{ encore_entry_script_tags( 'consent' ) }}
+{% endblock %}

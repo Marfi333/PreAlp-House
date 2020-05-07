@@ -1,0 +1,269 @@
+@import '~normalize.css';
+
+@import './parts/defaults.scss';
+@import './parts/fonts.scss';
+@import './parts/variables.scss';
+@import './parts/mixins.scss';
+
+@import './components/navbar.scss';
+@import './components/footer.scss';
+
+
+.error-group
+{
+    padding-top: 100px;
+    padding-bottom: 60px;
+    @include side_padding;
+    font-family: $default_font;
+    color: rgba(black, .8);
+    height: calc( 100vh - 70px - 353px - 90px );
+    min-height: 305px;
+
+    h1
+    {
+        font-size: 72px;
+        margin-bottom: 0px;
+        line-height: 1;
+
+        @media screen and( max-width: 650px )
+        {
+            margin-bottom: 10px;
+            line-height: .8;
+        }
+    }
+
+    h2
+    {
+        font-size: 23px;
+        font-weight: 300;
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+
+    a
+    {
+        color: lighten($main_color_2, 30%);
+        transition: color .2s;
+        text-decoration: none;
+
+        svg
+        {
+            max-height: 10px;
+            padding-right: 5px;
+        }
+
+        &:hover
+        {
+            color: lighten($main_color_2, 20%);
+            transition: color .2s;
+        }
+    }
+}
+
+.content
+{
+    padding-top: 100px;
+    padding-bottom: 60px;
+    @include side_padding;
+    font-family: $default_font;
+    color: rgba(black, .8);
+
+    .title
+    {
+        font-size: 72px;
+        margin-bottom: 10px;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    .title-long
+    {
+        font-size: 64px;
+    }
+
+    @media screen and (max-width: 760px)
+    {
+        .title-long
+        {
+            font-size: 60px !important;
+        }
+    }
+
+    .title-smaller
+    {
+        font-size: 64px;
+        margin-bottom: 60px;
+    }
+
+    .subtitle
+    {
+        font-size: 18px;
+        text-align: center;
+        font-weight: 300;
+        margin-bottom: 40px;
+    }
+
+    hr
+    {
+        border-top: 1px solid rgba(black, .3);
+    }
+
+    .cookie-group
+    {
+        border-top: 1px solid rgba(black, .15);
+        padding: 40px 0;
+        color: rgba(black, .8);
+
+        h1
+        {
+            font-size: 18px;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-top: 0;
+        }
+
+        p
+        {
+            font-size: 16px;
+        }
+    }
+
+    .main-group
+    {
+        margin-bottom: 35px;
+
+        h1
+        {
+            font-size: 18px;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-top: 0;
+        }
+
+        p
+        {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+    }
+
+    .list-group
+    {
+        b
+        {
+            width: 200px;
+        }
+
+        margin-bottom: 10px;
+    }
+
+    .secondary-group
+    {
+        padding-left: 18px;
+        margin-bottom: 35px;
+
+        h1
+        {
+            font-size: 18px;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-top: 0;
+        }
+
+        p
+        {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+    }
+
+    table
+    {
+        border-collapse: collapse;
+        margin-top: 10px;
+        margin-bottom: 20px;
+
+        ul
+        {
+            padding: 0 5px;
+            list-style-type: none;
+        }
+    }
+
+    table, th, td
+    {
+        border: 1px solid black;
+        text-align: center;
+    }
+
+    th 
+    {
+        padding: 5px 0;
+    }
+
+    td
+    {
+        padding: 10px 5px;
+    }
+
+    @media only screen and( max-width: 760px ), (min-device-width: 768px) and (max-device-width: 1024px)
+    {
+        table, thead, tbody, th, td, tr 
+        {
+			display: block;
+        }
+        
+        thead tr 
+        {
+			position: absolute;
+			top: -9999px;
+			left: -9999px;
+        }
+        
+        tr 
+        {
+            margin: 0 0 1rem 0;
+        }
+
+        /*tr:nth-child(odd) {
+            background: #ccc;
+          }*/
+          
+        td {
+            /* Behave  like a "row" */
+            border: none;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 50%;
+        }
+
+        td:before {
+            /* Now like a table header */
+            position: absolute;
+            /* Top/left values mimic padding */
+            top: 50%;
+            transform: translateY(-50%);
+            left: 6px;
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+        }
+
+        td:nth-of-type(1):before { content: "Kezelt adatok köre"; }
+		td:nth-of-type(2):before { content: "Adatkezelés célja"; }
+		td:nth-of-type(3):before { content: "Adatkezelés jogalapja"; }
+		td:nth-of-type(4):before { content: "Adatkezelés időtartama"; }
+		td:nth-of-type(5):before { content: "Mire használjuk"; }
+        td:nth-of-type(6):before { content: "Adatközlés/adattovábbítás"; }
+        
+        td:nth-of-type(6)
+        {
+            border-bottom: 2px solid black;
+        }
+
+        td
+        {
+            border-bottom: 1px solid black;
+        }
+    }
+}
